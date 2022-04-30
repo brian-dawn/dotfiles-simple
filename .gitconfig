@@ -1,0 +1,9 @@
+[user]
+    email = brian.t.dawn@gmail.com
+    name = Brian Dawn
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
+[rerere]
+	enabled = true
