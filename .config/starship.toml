@@ -1,0 +1,8 @@
+[character]
+success_symbol = "[何](bold green)"
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true

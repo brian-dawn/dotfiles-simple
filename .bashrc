@@ -1,3 +1,5 @@
+#!/bin/bash
+
 source $HOME/.cargo/env
 
 eval "$(starship init bash)" 
@@ -22,7 +24,6 @@ alias ls="exa";
 alias ll="exa -l";
 alias gs="git status";
 alias gco="git checkout";
-
 
 # Disable C-s locking the shell.
 if [[ -t 0 && $- = *i* ]]
