@@ -16,7 +16,8 @@ return {
         {key="k", mods="CTRL|SHIFT", action=wezterm.action{ActivatePaneDirection="Up"}},
 
         {key="\"", mods="CTRL|SHIFT", action=wezterm.action{SplitVertical={ }}},
-        {key="%",     mods="CTRL|SHIFT", action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
+        {key="%", mods="CTRL|SHIFT", action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
+        {key="Enter", mods="CTRL|SHIFT", action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
         {key="Enter", mods="CTRL", action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}}
   },
 
