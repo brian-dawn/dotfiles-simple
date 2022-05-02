@@ -19,7 +19,7 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
 
 alias ls="exa";
 alias ll="exa -l";
