@@ -1,8 +1,18 @@
 #!/bin/bash
 
 source $HOME/.cargo/env
-
 eval "$(starship init bash)" 
+
+# Install pyenv.
+if [ ! -d "$HOME/.pyenv" ]
+then
+    curl https://pyenv.run | bash
+    source ~/.bashrc
+fi
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
 
