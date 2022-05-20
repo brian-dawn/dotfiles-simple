@@ -9,9 +9,15 @@ then
     curl https://pyenv.run | bash
     source ~/.bashrc
 fi
+
+if [ -n "$(type -t pyenv)" ] && [ "$(type -t pyenv)" = function ]; then
+#    "pyenv is already initialized"
+    true
+else
+    if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+    if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+fi
 export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
 
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
