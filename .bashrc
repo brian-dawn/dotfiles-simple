@@ -22,6 +22,11 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
 
+
+# Golang
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+
 # Install fzf
 if [ ! -d "$HOME/.fzf" ] 
 then
