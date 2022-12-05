@@ -54,6 +54,8 @@ then
 fi 
 
 
+# Flutter
+export PATH="$HOME/software/flutter/bin:$PATH"
 
 
 export NVM_DIR="$HOME/.nvm"
