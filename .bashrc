@@ -65,3 +65,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Load anaconda if present.
 [ -f /opt/anaconda/etc/profile.d/conda.sh ] && source /opt/anaconda/etc/profile.d/conda.sh
+
+
+return 0
