@@ -14,3 +14,5 @@
 [include]
     path = ~/.gitconfig-work
 
+[push]
+	followTags = true
