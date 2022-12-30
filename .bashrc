@@ -67,4 +67,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -f /opt/anaconda/etc/profile.d/conda.sh ] && source /opt/anaconda/etc/profile.d/conda.sh
 
 
+
+# If not present download git completions.
+if [ ! -f "$HOME/.git-completion.bash" ]
+then
+
+    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+fi
+source ~/.git-completion.bash
+
 return 0
