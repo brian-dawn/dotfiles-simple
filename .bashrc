@@ -46,6 +46,8 @@ alias ls="exa";
 alias ll="exa -l";
 alias gs="git status";
 alias gco="git checkout";
+__git_complete gco _git_checkout
+
 
 # Disable C-s locking the shell.
 if [[ -t 0 && $- = *i* ]]
