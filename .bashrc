@@ -46,7 +46,6 @@ alias ls="exa";
 alias ll="exa -l";
 alias gs="git status";
 alias gco="git checkout";
-__git_complete gco _git_checkout
 
 
 # Disable C-s locking the shell.
@@ -77,5 +76,7 @@ then
     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
 source ~/.git-completion.bash
+
+__git_complete gco _git_checkout
 
 return 0
