@@ -79,4 +79,14 @@ source ~/.git-completion.bash
 
 __git_complete gco _git_checkout
 
+
+# Pyenv shell integration
+# Load pyenv automatically by appending
+# the following to
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+
 return 0
+
