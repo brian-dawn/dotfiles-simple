@@ -39,6 +39,9 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# Use ripgrep for fzf.
+export FZF_DEFAULT_COMMAND='rg --files'
+
 
 export PATH="$HOME/.local/bin:$PATH"
 
