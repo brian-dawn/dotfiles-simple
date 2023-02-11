@@ -41,6 +41,8 @@ fi
 
 # Use ripgrep for fzf.
 export FZF_DEFAULT_COMMAND='rg --files'
+# Ignore node_modules in Ctrl-T.
+export FZF_CTRL_T_COMMAND='find . -not -path "*/node_modules/*" -type f'
 
 
 export PATH="$HOME/.local/bin:$PATH"
