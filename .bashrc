@@ -39,10 +39,12 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# Use ripgrep for fzf.
-export FZF_DEFAULT_COMMAND='rg --files'
-# Ignore files and folders specified in .gitignore, node_modules, folders beginning with a dot, and __pycache__ folders in Ctrl-T.
-export FZF_CTRL_T_COMMAND="rg --files --no-ignore-vcs --glob '!./.*/*' --glob '!*/node_modules/*' --glob '!**/__pycache__/*'"
+# Use ripgrep for fzf and ignore common macOS folders.
+export FZF_DEFAULT_COMMAND="rg --files --glob '!~/Library/*' --glob '!/System/*' --glob '!/Applications/*' --glob '!/Library/*' --glob '!/Users/Shared/*'"
+
+# Ignore files and folders specified in .gitignore, node_modules, folders beginning with a dot, __pycache__ folders, and common macOS folders in Ctrl-T.
+export FZF_CTRL_T_COMMAND="rg --files --no-ignore-vcs --glob '!./.*/*' --glob '!*/node_modules/*' --glob '!**/__pycache__/*' --glob '!~/Library/*' --glob '!/System/*' --glob '!/Applications/*' --glob '!/Library/*' --glob '!/Users/Shared/*'"
+
 
 
 
