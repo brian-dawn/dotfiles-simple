@@ -2,11 +2,11 @@
 local wezterm = require 'wezterm';
 
 return {
-  color_scheme = "Gruvbox Dark",
+  color_scheme = "Gruvbox Light",
   hide_tab_bar_if_only_one_tab = true,
 
   -- Option as meta. TODO: Verify use_ime needs to be false.
-  send_composed_key_when_alt_is_pressed = false,
+  send_composed_key_when_left_alt_is_pressed = false,
   use_ime = false,
 
   font = wezterm.font("Fira Code"),
