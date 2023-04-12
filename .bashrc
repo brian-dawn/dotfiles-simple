@@ -41,8 +41,10 @@ fi
 
 # Use ripgrep for fzf.
 export FZF_DEFAULT_COMMAND='rg --files'
-# Ignore node_modules in Ctrl-T.
-export FZF_CTRL_T_COMMAND='find . -not -path "*/node_modules/*" -type f'
+# Ignore files and folders specified in .gitignore, node_modules, and folders beginning with a dot in Ctrl-T.
+export FZF_CTRL_T_COMMAND="rg --files --no-ignore-vcs --glob '!./.*/*' --glob '!*/node_modules/*'"
+
+
 
 
 export PATH="$HOME/.local/bin:$PATH"
