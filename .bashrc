@@ -41,8 +41,9 @@ fi
 
 # Use ripgrep for fzf.
 export FZF_DEFAULT_COMMAND='rg --files'
-# Ignore files and folders specified in .gitignore, node_modules, and folders beginning with a dot in Ctrl-T.
-export FZF_CTRL_T_COMMAND="rg --files --no-ignore-vcs --glob '!./.*/*' --glob '!*/node_modules/*'"
+# Ignore files and folders specified in .gitignore, node_modules, folders beginning with a dot, and __pycache__ folders in Ctrl-T.
+export FZF_CTRL_T_COMMAND="rg --files --no-ignore-vcs --glob '!./.*/*' --glob '!*/node_modules/*' --glob '!**/__pycache__/*'"
+
 
 
 
