@@ -46,7 +46,14 @@ export FZF_DEFAULT_COMMAND="rg --files --glob '!~/Library/*' --glob '!/System/*'
 export FZF_CTRL_T_COMMAND="rg --files --no-ignore-vcs --glob '!./.*/*' --glob '!*/node_modules/*' --glob '!**/__pycache__/*' --glob '!~/Library/*' --glob '!/System/*' --glob '!/Applications/*' --glob '!/Library/*' --glob '!/Users/Shared/*'"
 
 
-
+# Goto file, helpful in conjunction with C-T
+gt() {
+    if [ -f "$1" ]; then  # Check if file exists
+        cd "$(dirname "$1")"  # Change directory to the parent directory of the file
+    else
+        echo "File does not exist: $1"
+    fi
+}
 
 
 
