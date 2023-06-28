@@ -15,7 +15,6 @@ if [ -n "$(type -t pyenv)" ] && [ "$(type -t pyenv)" = function ]; then
     true
 else
     if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-    if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 fi
 export PATH="$HOME/.pyenv/bin:$PATH"
 
@@ -63,6 +62,7 @@ alias ls="exa";
 alias ll="exa -l";
 alias gs="git status";
 alias gco="git checkout";
+alias vim="nvim";
 
 
 # Disable C-s locking the shell.
@@ -103,7 +103,6 @@ __git_complete gco _git_checkout
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
 
 return 0
 
