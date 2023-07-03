@@ -9,6 +9,9 @@ return {
   send_composed_key_when_left_alt_is_pressed = false,
   use_ime = false,
 
+  window_background_opacity = 0.8,
+  macos_window_background_blur = 60,
+
   font = wezterm.font("Fira Code"),
   font_size = 13,
   check_for_updates = false,
