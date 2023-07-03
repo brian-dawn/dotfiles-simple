@@ -21,7 +21,7 @@ return {
   window_background_opacity = 0.85,
   macos_window_background_blur = 60,
 
-  font = wezterm.font("Fira Code"),
+  -- font = wezterm.font("Fira Code"),
   font_size = 13,
   check_for_updates = false,
   -- debug_key_events=true,
