@@ -22,7 +22,7 @@ return {
   macos_window_background_blur = 60,
 
   -- font = wezterm.font("Fira Code"),
-  font_size = 13,
+  font_size = 12,
   check_for_updates = false,
   -- debug_key_events=true,
   keys = {
