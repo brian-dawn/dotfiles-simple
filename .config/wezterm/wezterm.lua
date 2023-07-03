@@ -2,14 +2,17 @@
 local wezterm = require 'wezterm';
 
 return {
-  color_scheme = "Gruvbox Light",
+  -- color_scheme = "Mocha (light) (terminal.sexy)",
+
+  color_scheme = 'Atelier Plateau Light (base16)',
+
   hide_tab_bar_if_only_one_tab = true,
 
-  window_background_gradient = {
-    colors = { '#EEBD89', '#D13ABD' },
-    -- Specifices a Linear gradient starting in the top left corner.
-    orientation = { Linear = { angle = -45.0 } },
-  },
+  -- window_background_gradient = {
+  --   colors = { '#EEBD89', '#D13ABD' },
+  --   -- Specifices a Linear gradient starting in the top left corner.
+  --   orientation = { Linear = { angle = -45.0 } },
+  -- },
 
   -- Option as meta. TODO: Verify use_ime needs to be false.
   send_composed_key_when_left_alt_is_pressed = false,
