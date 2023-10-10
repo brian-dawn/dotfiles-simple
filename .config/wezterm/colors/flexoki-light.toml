@@ -2,7 +2,9 @@
 # author: Kepano
 # license: MIT
 # upstream: https://stephango.com/flexoki
-# blurb: An inky color scheme for prose and code[colors]
+# blurb: An inky color scheme for prose and code
+
+[colors]
 ansi = [
   "#AF3029",
   "#BC5215",
@@ -36,7 +38,7 @@ cursor_fg = "#FFFCF0"
 [colors.indexed]
 
 [metadata]
-aliases = [ "Flexoki Light", ]
+aliases = ["Flexoki Light"]
 name = "Flexoki Light"
 origin_url = "https://stephango.com/flexoki"
 wezterm_version = "Always"
