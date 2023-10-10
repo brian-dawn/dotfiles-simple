@@ -4,19 +4,19 @@ source $HOME/.cargo/env
 eval "$(starship init bash)" 
 
 # Install pyenv.
-if [ ! -d "$HOME/.pyenv" ]
-then
-    curl https://pyenv.run | bash
-    source ~/.bashrc
-fi
+# if [ ! -d "$HOME/.pyenv" ]
+# then
+#     curl https://pyenv.run | bash
+#     source ~/.bashrc
+# fi
 
-if [ -n "$(type -t pyenv)" ] && [ "$(type -t pyenv)" = function ]; then
-#    "pyenv is already initialized"
-    true
-else
-    if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-fi
-export PATH="$HOME/.pyenv/bin:$PATH"
+# if [ -n "$(type -t pyenv)" ] && [ "$(type -t pyenv)" = function ]; then
+# #    "pyenv is already initialized"
+#     true
+# else
+#     if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+# fi
+# export PATH="$HOME/.pyenv/bin:$PATH"
 
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
@@ -100,9 +100,15 @@ __git_complete gco _git_checkout
 # Pyenv shell integration
 # Load pyenv automatically by appending
 # the following to
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+#
+source $(tamago activate)
 
-return 0
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
+
+[ -f "/Users/brian/.ghcup/env" ] && source "/Users/brian/.ghcup/env" # ghcup-env

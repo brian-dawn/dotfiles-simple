@@ -3,8 +3,14 @@ local wezterm = require 'wezterm';
 
 return {
   -- color_scheme = "Mocha (light) (terminal.sexy)",
+  -- color_scheme = 'Atelier Plateau Light (base16)',
 
-  color_scheme = 'Atelier Plateau Light (base16)',
+
+  color_scheme_dirs = { os.getenv("HOME") .. "/.config/wezterm/colors/" },
+
+  color_scheme = "Flexoki Light",
+
+
 
   hide_tab_bar_if_only_one_tab = true,
 
