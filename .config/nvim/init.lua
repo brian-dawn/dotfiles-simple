@@ -123,6 +123,7 @@ vim.opt.expandtab = true
 
 
 -- Telescope (fuzzy search) setup
+-- TODO: Check out the other options and add LSP.
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
