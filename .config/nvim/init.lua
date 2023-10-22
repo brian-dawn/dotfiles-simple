@@ -30,6 +30,7 @@ require('lazy').setup({
     {'zbirenbaum/copilot.lua'}, --
     {'windwp/nvim-autopairs'}, --
     {'windwp/nvim-ts-autotag'}, --
+    {'pocco81/auto-save.nvim'}, --
     {
         'numToStr/Comment.nvim',
         opts = {
@@ -39,6 +40,10 @@ require('lazy').setup({
     }, --
 })
 
+-- setup auto save
+require('auto-save').setup()
+
+--
 -- Setup color theme.
 vim.cmd [[colorscheme flexoki]]
 
