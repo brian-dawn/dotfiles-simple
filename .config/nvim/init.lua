@@ -32,6 +32,9 @@ require('lazy').setup({
     {'windwp/nvim-autopairs'}, --
     {'windwp/nvim-ts-autotag'}, --
 
+    {'nvim-tree/nvim-tree.lua'}, --
+    {'nvim-tree/nvim-web-devicons'}, --
+
     {'lewis6991/gitsigns.nvim'}, --
     {'pocco81/auto-save.nvim'}, --
     {
@@ -46,7 +49,7 @@ require('lazy').setup({
 -- setup auto save
 require('auto-save').setup()
 
---
+
 -- Setup color theme.
 vim.cmd [[colorscheme flexoki]]
 
@@ -62,6 +65,14 @@ require('lualine').setup({
 require'nvim-treesitter.configs'.setup {
     auto_install = true
 }
+
+
+require('nvim-tree').setup()
+require('nvim-web-devicons').setup()
+-- Disable the tree background color.
+vim.api.nvim_exec([[
+    hi NvimTreeNormal guibg=NONE
+]], false)
 
 -- LSP setup.
 require('config-lsp')
