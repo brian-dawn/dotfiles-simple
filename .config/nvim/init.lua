@@ -25,7 +25,15 @@ require('lazy').setup({
         tag = '0.1.4',
         dependencies = {'nvim-lua/plenary.nvim'}
     }, --
-    {'nvim-treesitter/nvim-treesitter'} --
+    {'nvim-treesitter/nvim-treesitter'}, --
+    {'tpope/vim-surround'}, --
+    {
+        'numToStr/Comment.nvim',
+        opts = {
+            -- add any options here
+        },
+        lazy = false,
+    }, --
 })
 
 -- Setup color theme.
@@ -91,6 +99,7 @@ cmp.setup({
         ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
         ['<tab>'] = cmp.mapping.confirm({select = true}),
+        ['<enter>'] = cmp.mapping.confirm({select = true}),
         ['<C-Space>'] = cmp.mapping.complete()
     })
 })
@@ -103,6 +112,15 @@ vim.g.mapleader = ' '
 -- Show numbers
 vim.wo.number = true
 
+-- Equivalent to 'set tabstop=4'
+vim.opt.tabstop = 4
+
+-- Equivalent to 'set shiftwidth=4'
+vim.opt.shiftwidth = 4
+
+-- Equivalent to 'set expandtab'
+vim.opt.expandtab = true
+
 
 -- Telescope (fuzzy search) setup
 local builtin = require('telescope.builtin')
@@ -110,3 +128,9 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+
+-- Enable gc
+require('Comment').setup()
+
+
