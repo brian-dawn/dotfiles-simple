@@ -32,6 +32,8 @@ require('lazy').setup({
     {'windwp/nvim-autopairs'}, --
     {'windwp/nvim-ts-autotag'}, --
 
+    {'phaazon/hop.nvim'}, --
+
     {'nvim-tree/nvim-tree.lua'}, --
     {'nvim-tree/nvim-web-devicons'}, --
 
@@ -117,4 +119,9 @@ require('Comment').setup()
 require('config-terminal')
 
 
+require('hop').setup()
+vim.keymap.set('n', '<leader>w', ":HopWord<cr>", { noremap = true, silent = true })
+
+-- Clipboard configuration
+-- vim.opt.clipboard = "unnamedplus"
 
