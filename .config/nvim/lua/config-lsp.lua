@@ -21,14 +21,14 @@ lsp_zero.on_attach(function(client, bufnr)
                    opts)
 end)
 
--- Enable always hover.
-vim.opt.updatetime = 1000  -- Trigger CursorHold after 1 second of inactivity
-vim.cmd [[
-    augroup LspHoverOnCursorHold
-    autocmd!
-    autocmd CursorHold * lua vim.lsp.buf.hover()
-    augroup END
-]]
+-- -- Enable always hover.
+-- vim.opt.updatetime = 1000  -- Trigger CursorHold after 1 second of inactivity
+-- vim.cmd [[
+--     augroup LspHoverOnCursorHold
+--     autocmd!
+--     autocmd CursorHold * lua vim.lsp.buf.hover()
+--     augroup END
+-- ]]
 
 -- Disable semantic tokens.
 lsp_zero.set_server_config({

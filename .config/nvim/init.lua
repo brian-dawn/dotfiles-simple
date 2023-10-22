@@ -28,8 +28,11 @@ require('lazy').setup({
     {'nvim-treesitter/nvim-treesitter'}, --
     {'tpope/vim-surround'}, --
     {'zbirenbaum/copilot.lua'}, --
+
     {'windwp/nvim-autopairs'}, --
     {'windwp/nvim-ts-autotag'}, --
+
+    {'lewis6991/gitsigns.nvim'}, --
     {'pocco81/auto-save.nvim'}, --
     {
         'numToStr/Comment.nvim',
@@ -64,6 +67,7 @@ require'nvim-treesitter.configs'.setup {
 require('config-lsp')
 require('config-copilot')
 
+require('gitsigns').setup()
 
 require('nvim-autopairs').setup()
 require('nvim-ts-autotag').setup()
