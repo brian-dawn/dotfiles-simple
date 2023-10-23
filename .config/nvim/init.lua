@@ -36,6 +36,17 @@ require('lazy').setup({
     {'windwp/nvim-autopairs'}, --
     {'windwp/nvim-ts-autotag'}, --
 
+    {
+  "NeogitOrg/neogit",
+  dependencies = {
+    "nvim-lua/plenary.nvim",         -- required
+    "nvim-telescope/telescope.nvim", -- optional
+    "sindrets/diffview.nvim",        -- optional
+    "ibhagwan/fzf-lua",              -- optional
+  },
+  config = true
+}, -- Neogit
+
     {'phaazon/hop.nvim'}, --
 
     {'nvim-tree/nvim-tree.lua'}, --
