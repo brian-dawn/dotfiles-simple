@@ -69,6 +69,9 @@ require('auto-save').setup()
 
 -- Setup color theme.
 -- vim.cmd [[colorscheme flexoki]]
+require('catppuccin').setup({
+    term_colors = true
+})
 vim.cmd.colorscheme "catppuccin"
 
 require('lualine').setup({
@@ -137,3 +140,19 @@ vim.keymap.set('n', '<leader>w', ":HopWord<cr>", { noremap = true, silent = true
 vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 
 
+-- neovide
+if vim.g.neovide then
+  -- Enable copy paste on macos with cmd
+  vim.keymap.set('n', '<D-s>', ':w<CR>') -- Save
+  vim.keymap.set('v', '<D-c>', '"+y') -- Copy
+  vim.keymap.set('n', '<D-v>', '"+P') -- Paste normal mode
+  vim.keymap.set('v', '<D-v>', '"+P') -- Paste visual mode
+  vim.keymap.set('c', '<D-v>', '<C-R>+') -- Paste command mode
+  vim.keymap.set('i', '<D-v>', '<ESC>l"+Pli') -- Paste insert mode
+
+  vim.g.neovide_input_macos_alt_is_meta = true
+  vim.g.neovide_cursor_trail_size = 0.0
+  vim.g.neovide_scroll_animation_length = 0.005
+
+  vim.g.neovide_cursor_animate_in_insert_mode = true
+end
