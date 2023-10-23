@@ -134,5 +134,6 @@ require('hop').setup()
 vim.keymap.set('n', '<leader>w', ":HopWord<cr>", { noremap = true, silent = true })
 
 -- Clipboard configuration
--- vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
+
 
