@@ -88,7 +88,11 @@ require'nvim-treesitter.configs'.setup {
 }
 
 
-require('nvim-tree').setup()
+require('nvim-tree').setup({
+    update_focused_file = {
+      enable = true,
+    }
+})
 require('nvim-web-devicons').setup()
 -- Disable the tree background color.
 vim.api.nvim_exec([[
