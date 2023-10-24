@@ -164,6 +164,8 @@ vim.opt.wrap = false
 
 require('show-help')
 
+-- Set title.
+vim.opt.title = true
 
 -- neovide
 if vim.g.neovide then

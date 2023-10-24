@@ -7,7 +7,7 @@ vim.cmd([[
 ]])
 
 M.help_content = {
-    "Neovim Key Mappings and Commands",
+    "NEOVIM KEY MAPPINGS AND COMMANDS",
     "",
     "LSP (Language Server Protocol) Mappings:",
     "gd: Go to definition",
