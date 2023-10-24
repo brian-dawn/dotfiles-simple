@@ -45,7 +45,6 @@ alias ls="exa";
 alias ll="exa -l";
 alias gs="git status";
 alias gco="git checkout";
-alias vim="nvim";
 
 
 # Disable C-s locking the shell.
