@@ -64,4 +64,16 @@ cmp.setup({
     })
 })
 
+-- Sort warnings by severity.
+vim.diagnostic.config({
+  virtual_text = {
+    severity_sort = true,
+    prefix = '●', -- Could be '' or any other symbol you prefer
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = true,
+  severity_sort = true,
+})
+
 
