@@ -144,6 +144,22 @@ vim.keymap.set('n', '<leader>w', ":HopWord<cr>", { noremap = true, silent = true
 vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 
 
+-- Improved navigation via control + shift + h/j/k/l
+vim.api.nvim_set_keymap('n', '<C-S-h>', '<C-w>h', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-S-l>', '<C-w>l', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-S-j>', '<C-w>j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-S-k>', '<C-w>k', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('i', '<C-S-h>', '<C-\\><C-N><C-w>h', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-S-l>', '<C-\\><C-N><C-w>l', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-S-j>', '<C-\\><C-N><C-w>j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-S-k>', '<C-\\><C-N><C-w>k', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('t', '<C-S-h>', '<C-\\><C-N><C-w>h', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<C-S-l>', '<C-\\><C-N><C-w>l', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<C-S-j>', '<C-\\><C-N><C-w>j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<C-S-k>', '<C-\\><C-N><C-w>k', { noremap = true, silent = true })
+
 -- neovide
 if vim.g.neovide then
   -- Enable copy paste on macos with cmd
