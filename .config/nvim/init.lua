@@ -18,10 +18,11 @@ require('lazy').setup({
     {'hrsh7th/cmp-nvim-lsp'}, --
     {'hrsh7th/nvim-cmp'}, --
     {'L3MON4D3/LuaSnip'}, --
-    {'folke/tokyonight.nvim'}, --
 
+    {'folke/tokyonight.nvim'}, --
     {'stevedylandev/flexoki-nvim', name = 'flexoki'}, --
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 }, --
+    {'AstroNvim/astrotheme'}, --
 
     {'nvim-lualine/lualine.nvim'}, --
     {
@@ -67,8 +68,7 @@ require('lazy').setup({
 require('auto-save').setup()
 
 
--- Setup color theme.
--- vim.cmd [[colorscheme flexoki]]
+require('astrotheme').setup()
 require('catppuccin').setup({
     term_colors = true
 })
