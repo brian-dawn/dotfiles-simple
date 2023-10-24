@@ -162,6 +162,9 @@ vim.opt.wrap = false
 -- vim.api.nvim_set_keymap('t', '<C-S-j>', '<C-\\><C-N><C-w>j', { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('t', '<C-S-k>', '<C-\\><C-N><C-w>k', { noremap = true, silent = true })
 
+require('show-help')
+
+
 -- neovide
 if vim.g.neovide then
   -- Enable copy paste on macos with cmd
