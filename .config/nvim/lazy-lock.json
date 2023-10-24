@@ -10,6 +10,7 @@
   "flexoki": { "branch": "main", "commit": "5298c24a84fa62366d1d0ff86950cd05d6f4e3d9" },
   "fzf-lua": { "branch": "main", "commit": "04e7382528f3f4970cb1cd559d06ae6f7b44560e" },
   "gitsigns.nvim": { "branch": "main", "commit": "5a9a6ac29a7805c4783cda21b80a1e361964b3f2" },
+  "guess-indent.nvim": { "branch": "main", "commit": "b8ae749fce17aa4c267eec80a6984130b94f80b2" },
   "hop.nvim": { "branch": "master", "commit": "1a1eceafe54b5081eae4cb91c723abd1d450f34b" },
   "lazy.nvim": { "branch": "main", "commit": "e42fccc3cda70266e0841c5126de2c23e8982800" },
   "lsp-zero.nvim": { "branch": "v3.x", "commit": "c36c34c289e42f924760a6ea092329582d5f81b2" },

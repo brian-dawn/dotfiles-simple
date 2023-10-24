@@ -36,6 +36,8 @@ require('lazy').setup({
     {'tpope/vim-surround'}, --
     {'zbirenbaum/copilot.lua'}, --
 
+    {'NMAC427/guess-indent.nvim'}, --
+
     {'windwp/nvim-autopairs'}, --
     {'windwp/nvim-ts-autotag'}, --
 
@@ -100,6 +102,11 @@ require('nvim-web-devicons').setup()
 vim.api.nvim_exec([[
     hi NvimTreeNormal guibg=NONE
 ]], false)
+
+require('guess-indent').setup {
+    auto_cmd = true,
+}
+
 
 -- LSP setup.
 require('config-lsp')
