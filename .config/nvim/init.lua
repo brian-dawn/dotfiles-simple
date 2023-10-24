@@ -24,6 +24,8 @@ require('lazy').setup({
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 }, --
     {'AstroNvim/astrotheme'}, --
 
+    {'akinsho/toggleterm.nvim', version = "*", config = true}, --
+
     {'nvim-lualine/lualine.nvim'}, --
     {
         'nvim-telescope/telescope.nvim',
