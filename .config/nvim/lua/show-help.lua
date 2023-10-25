@@ -7,9 +7,9 @@ vim.cmd([[
 ]])
 
 M.help_content = {
-    "NEOVIM KEY MAPPINGS AND COMMANDS",
+    "Neovim Key Mappings and Commands",
     "",
-    "LSP (Language Server Protocol) Mappings:",
+    "LSP Mappings:",
     "gd: Go to definition",
     "K: Show hover information",
     "<leader>vws: Search workspace symbols",
@@ -23,6 +23,7 @@ M.help_content = {
     "",
     "Telescope Mappings:",
     "<leader>ff: Find files",
+    "<C-p>: Find files",
     "<leader>fg: Live grep",
     "<leader>fb: Show buffers",
     "<leader>fh: Show help tags",
@@ -38,6 +39,8 @@ M.help_content = {
     "<M-[> (Insert mode): Go to previous copilot suggestion",
     "<C-]> (Insert mode): Dismiss copilot suggestion",
     "",
+    "Miscellaneous Mappings:",
+    "<leader>t: Open floating terminal (esc closes)",
     "Press 'q' or '<ESC>' to close this window."
 }
 
