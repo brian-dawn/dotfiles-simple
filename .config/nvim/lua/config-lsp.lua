@@ -31,12 +31,12 @@ end)
 -- ]]
 
 -- Disable semantic tokens.
-lsp_zero.set_server_config({
-    on_init = function(client)
-        client.server_capabilities.semanticTokensProvider = nil
-    end
-})
-
+-- lsp_zero.set_server_config({
+--     on_init = function(client)
+--         client.server_capabilities.semanticTokensProvider = nil
+--     end
+-- })
+-- 
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {'tsserver', 'rust_analyzer'},
