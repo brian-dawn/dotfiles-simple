@@ -13,3 +13,4 @@ vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 
 -- Make escape close telescope (no modes, sorry!)
 
+vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")

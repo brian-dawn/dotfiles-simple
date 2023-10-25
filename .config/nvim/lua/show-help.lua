@@ -27,6 +27,7 @@ M.help_content = {
     "<leader>fg: Live grep",
     "<leader>fb: Show buffers",
     "<leader>fh: Show help tags",
+    "<leader>u: Show undo history",
     "",
     "Copilot Mappings:",
     "[[: Jump to previous placeholder",

@@ -27,11 +27,6 @@ require('lazy').setup({
     {'akinsho/toggleterm.nvim', version = "*", config = true}, --
 
     {'nvim-lualine/lualine.nvim'}, --
-    {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.4',
-        dependencies = {'nvim-lua/plenary.nvim'}
-    }, --
     {'nvim-treesitter/nvim-treesitter'}, --
     {'tpope/vim-surround'}, --
     {'zbirenbaum/copilot.lua'}, --
@@ -52,12 +47,16 @@ require('lazy').setup({
         require("telescope").setup({
           extensions = {
             undo = {
-              -- telescope-undo.nvim config, see below
+
+                side_by_side = true,
+                layout_strategy = "vertical",
+                layout_config = {
+                  preview_height = 0.8,
+                },
             },
           },
         })
         require("telescope").load_extension("undo")
-        vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
       end,
     }, --
 
