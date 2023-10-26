@@ -28,6 +28,28 @@ require('lazy').setup({
 
     {'akinsho/toggleterm.nvim', version = "*", config = true}, --
 
+    {
+      "folke/noice.nvim",
+      event = "VeryLazy",
+      opts = {
+        -- add any options here
+        cmdline = {
+          enabled = false
+        },
+        messages = {
+          enabled = false
+        },
+      },
+      dependencies = {
+        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+        "MunifTanjim/nui.nvim",
+        -- OPTIONAL:
+        --   `nvim-notify` is only needed, if you want to use the notification view.
+        --   If not available, we use `mini` as the fallback
+        "rcarriga/nvim-notify",
+        }
+    }, --
+
     {'nvim-lualine/lualine.nvim'}, --
     {'tpope/vim-surround'}, --
     {'zbirenbaum/copilot.lua'}, --
@@ -152,8 +174,6 @@ vim.opt.shiftwidth = 4
 
 -- Equivalent to 'set expandtab'
 vim.opt.expandtab = true
-
-
 
 -- Configure telescope.
 require('config-telescope')
