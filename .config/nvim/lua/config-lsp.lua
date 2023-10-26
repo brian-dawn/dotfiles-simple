@@ -46,13 +46,6 @@ cmp.setup({
             end },
     },
 
-    -- Select the first item in the completion menu by default.
-    preselect = 'item',
-    completion = {
-      completeopt = 'menu,menuone,noinsert'
-    },
-    -- 
-
     formatting = lsp_zero.cmp_format(),
     mapping = cmp.mapping.preset.insert({
         ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
