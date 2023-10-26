@@ -9,6 +9,7 @@
   "diffview.nvim": { "branch": "main", "commit": "d38c1b5266850f77f75e006bcc26213684e1e141" },
   "flexoki": { "branch": "main", "commit": "5298c24a84fa62366d1d0ff86950cd05d6f4e3d9" },
   "fzf-lua": { "branch": "main", "commit": "04e7382528f3f4970cb1cd559d06ae6f7b44560e" },
+  "git-blame.nvim": { "branch": "master", "commit": "1792125237260dc2a03ba57d31c39179e6049f07" },
   "gitsigns.nvim": { "branch": "main", "commit": "5a9a6ac29a7805c4783cda21b80a1e361964b3f2" },
   "guess-indent.nvim": { "branch": "main", "commit": "b8ae749fce17aa4c267eec80a6984130b94f80b2" },
   "hop.nvim": { "branch": "master", "commit": "1a1eceafe54b5081eae4cb91c723abd1d450f34b" },

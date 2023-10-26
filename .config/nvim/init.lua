@@ -94,6 +94,10 @@ require('lazy').setup({
   config = true
 }, -- Neogit
 
+    {'tpope/vim-fugitive'}, --
+
+    {'f-person/git-blame.nvim'}, --
+
     {'phaazon/hop.nvim'}, --
 
     {'nvim-tree/nvim-tree.lua'}, --
