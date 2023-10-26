@@ -21,22 +21,6 @@ lsp_zero.on_attach(function(client, bufnr)
                    opts)
 end)
 
--- -- Enable always hover.
--- vim.opt.updatetime = 1000  -- Trigger CursorHold after 1 second of inactivity
--- vim.cmd [[
---     augroup LspHoverOnCursorHold
---     autocmd!
---     autocmd CursorHold * lua vim.lsp.buf.hover()
---     augroup END
--- ]]
-
--- Disable semantic tokens.
--- lsp_zero.set_server_config({
---     on_init = function(client)
---         client.server_capabilities.semanticTokensProvider = nil
---     end
--- })
--- 
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {'tsserver', 'rust_analyzer'},
@@ -53,7 +37,22 @@ local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
 cmp.setup({
-    sources = {{name = 'path'}, {name = 'nvim_lsp'}, {name = 'nvim_lua'}},
+    sources = {
+
+        { name = "nvim_lsp",
+            entry_filter = function(entry, ctx)
+                -- Filter out snippets, even ones provided by the LSP.
+                return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
+            end },
+    },
+
+    -- Select the first item in the completion menu by default.
+    preselect = 'item',
+    completion = {
+      completeopt = 'menu,menuone,noinsert'
+    },
+    -- 
+
     formatting = lsp_zero.cmp_format(),
     mapping = cmp.mapping.preset.insert({
         ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
