@@ -181,7 +181,8 @@ require('show-help')
 vim.opt.title = true
 
 -- Disable auto commenting new lines.
-vim.opt.formatoptions:remove("cro")
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 
 -- neovide
 if vim.g.neovide then
