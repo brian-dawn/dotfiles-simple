@@ -32,10 +32,6 @@ require('lazy').setup({
       "folke/noice.nvim",
       event = "VeryLazy",
       opts = {
-        -- add any options here
-        cmdline = {
-          enabled = false
-        },
         messages = {
           enabled = false
         },
