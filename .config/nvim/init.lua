@@ -11,6 +11,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+
+    {'nvim-treesitter/nvim-treesitter'}, --
     {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'}, --
     {'williamboman/mason.nvim'}, --
     {'williamboman/mason-lspconfig.nvim'}, --
@@ -27,7 +29,6 @@ require('lazy').setup({
     {'akinsho/toggleterm.nvim', version = "*", config = true}, --
 
     {'nvim-lualine/lualine.nvim'}, --
-    {'nvim-treesitter/nvim-treesitter'}, --
     {'tpope/vim-surround'}, --
     {'zbirenbaum/copilot.lua'}, --
 
@@ -178,6 +179,9 @@ require('show-help')
 
 -- Set title.
 vim.opt.title = true
+
+-- Disable auto commenting new lines.
+vim.opt.formatoptions:remove("cro")
 
 -- neovide
 if vim.g.neovide then
