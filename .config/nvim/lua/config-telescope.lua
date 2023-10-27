@@ -6,6 +6,11 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
+vim.keymap.set("n", "<leader>gs", ":Telescope git_status<CR>", opts)
+vim.keymap.set("n", "<leader>gc", ":Telescope git_commits<CR>", opts)
+vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", opts)
+-- vim.keymap.set("n", "<leader>gc", ":Telescope git_bcommits<CR>", opts)
+
 -- Also add find_files as ctrl + p
 vim.keymap.set("n", "<C-p>", builtin.find_files, {})
 
