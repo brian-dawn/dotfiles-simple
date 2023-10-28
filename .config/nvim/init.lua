@@ -36,6 +36,20 @@ require("lazy").setup({
 
 	{ "akinsho/toggleterm.nvim", version = "*", config = true }, --
 
+{
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+  init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+  end,
+  opts = {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+},
+
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
@@ -203,7 +217,6 @@ require("config-terminal")
 require("config-bindings")
 
 require("hop").setup()
-vim.keymap.set("n", "<leader>w", ":HopWord<cr>", { noremap = true, silent = true })
 
 -- Clipboard configuration
 vim.opt.clipboard:append({ "unnamed", "unnamedplus" })

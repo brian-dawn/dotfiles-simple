@@ -1,4 +1,5 @@
 local lsp_zero = require("lsp-zero")
+local which_key = require("which-key")
 
 lsp_zero.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
@@ -31,6 +32,40 @@ lsp_zero.on_attach(function(client, bufnr)
 	vim.keymap.set("i", "<C-h>", function()
 		vim.lsp.buf.signature_help()
 	end, opts)
+
+
+
+	which_key.register({
+		-- Normal mode
+		g = {
+			name = "Go to",
+			d = "Go to definition",
+		},
+		K = "Show hover",
+		["<leader>v"] = {
+			name = "lsp",
+			c = {
+				name = "Code",
+				o = "Outgoing calls",
+				i = "Incoming calls",
+				a = "Code action",
+			},
+			d = "Diagnostics float",
+			w = {
+				name = "Workspace",
+				s = "Workspace symbols",
+			},
+			r = {
+				name = "References/Rename",
+				r = "References",
+				n = "Rename",
+			},
+		},
+		["[d"] = "Next diagnostic",
+		["]d"] = "Previous diagnostic",
+	}, { buffer = bufnr })
+
+
 end)
 
 require("mason").setup({})
