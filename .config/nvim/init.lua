@@ -131,7 +131,7 @@ require("lazy").setup({
 
 	-- Auto save documents.
 	{
-		"zoriya/auto-save.nvim"
+		"zoriya/auto-save.nvim",
 	},
 
 	-- Comment out blocks of code.
@@ -146,7 +146,7 @@ require("astrotheme").setup()
 require("catppuccin").setup({
 	term_colors = true,
 })
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("astromars")
 
 require("lualine").setup({
 	sections = {
@@ -172,13 +172,6 @@ require("nvim-tree").setup({
 	},
 })
 require("nvim-web-devicons").setup()
--- Disable the tree background color.
-vim.api.nvim_exec(
-	[[
-    hi NvimTreeNormal guibg=NONE
-]],
-	false
-)
 
 require("guess-indent").setup({
 	auto_cmd = true,
@@ -243,6 +236,9 @@ vim.opt.title = true
 -- Disable auto commenting new lines.
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
+-- Disable separators.
+vim.opt.fillchars = { vert = " " }
 
 -- neovide
 if vim.g.neovide then
