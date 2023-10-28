@@ -250,6 +250,7 @@ if vim.g.neovide then
 	vim.keymap.set("c", "<D-v>", "<C-R>+") -- Paste command mode
 	vim.keymap.set("i", "<D-v>", '<ESC>l"+Pli') -- Paste insert mode
 
+	vim.g.neovide_cursor_vfx_mode = ""
 	vim.g.neovide_input_macos_alt_is_meta = true
 	vim.g.neovide_cursor_trail_size = 0.0
 	vim.g.neovide_scroll_animation_length = 0.005
