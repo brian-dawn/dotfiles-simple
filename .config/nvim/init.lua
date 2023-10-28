@@ -32,6 +32,8 @@ require("lazy").setup({
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }, --
 	{ "AstroNvim/astrotheme" }, --
 
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, --
+
 	{ "akinsho/toggleterm.nvim", version = "*", config = true }, --
 
 	{
@@ -184,6 +186,12 @@ require("config-telescope")
 
 -- Enable gc
 require("Comment").setup()
+
+require("ibl").setup {
+	scope = {
+		enabled = false -- Disable scoped highlighting when treesitter is enabled, it's neat but annoying.
+	}
+}
 
 -- Terminal configuration
 require("config-terminal")
