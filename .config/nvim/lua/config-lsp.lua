@@ -12,7 +12,7 @@ lsp_zero.on_attach(function(client, bufnr)
 	end, opts)
 	vim.keymap.set("n", "<leader>vco", ":Telescope lsp_outgoing_calls<CR>", opts)
 	vim.keymap.set("n", "<leader>vci", ":Telescope lsp_incoming_calls<CR>", opts)
-	vim.keymap.set("n", "<leader>vws", ':Telescope lsp_workspace_symbols<CR>', opts)
+	vim.keymap.set("n", "<leader>vws", ":Telescope lsp_workspace_symbols<CR>", opts)
 	vim.keymap.set("n", "<leader>vd", function()
 		vim.diagnostic.open_float()
 	end, opts)
@@ -25,15 +25,13 @@ lsp_zero.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<leader>vca", function()
 		vim.lsp.buf.code_action()
 	end, opts)
-	vim.keymap.set("n", "<leader>vrr", ':Telescope lsp_references<CR>', opts)
+	vim.keymap.set("n", "<leader>vrr", ":Telescope lsp_references<CR>", opts)
 	vim.keymap.set("n", "<leader>vrn", function()
 		vim.lsp.buf.rename()
 	end, opts)
 	vim.keymap.set("i", "<C-h>", function()
 		vim.lsp.buf.signature_help()
 	end, opts)
-
-
 
 	which_key.register({
 		-- Normal mode
@@ -64,8 +62,6 @@ lsp_zero.on_attach(function(client, bufnr)
 		["[d"] = "Next diagnostic",
 		["]d"] = "Previous diagnostic",
 	}, { buffer = bufnr })
-
-
 end)
 
 require("mason").setup({})

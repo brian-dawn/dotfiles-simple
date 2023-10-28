@@ -36,19 +36,19 @@ require("lazy").setup({
 
 	{ "akinsho/toggleterm.nvim", version = "*", config = true }, --
 
-{
-  "folke/which-key.nvim",
-  event = "VeryLazy",
-  init = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 300
-  end,
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
-},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end,
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+	},
 
 	{
 		"folke/noice.nvim",
@@ -100,16 +100,15 @@ require("lazy").setup({
 		end,
 	}, --
 
-{
- "folke/trouble.nvim",
- dependencies = { "nvim-tree/nvim-web-devicons" },
- opts = {
-  -- your configuration comes here
-  -- or leave it empty to use the default settings
-  -- refer to the configuration section below
- },
-}, -- Collect diagnostics
-
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+	}, -- Collect diagnostics
 
 	{ "tpope/vim-fugitive" }, --
 
@@ -139,15 +138,15 @@ require("catppuccin").setup({
 vim.cmd.colorscheme("catppuccin")
 
 require("lualine").setup({
-  sections = {
-    lualine_c = {
-      { 'filename', path = 1 }
-    },
-  },
+	sections = {
+		lualine_c = {
+			{ "filename", path = 1 },
+		},
+	},
 	options = {
 		section_separators = { "", "" }, -- removes separators
 		component_separators = { "", "" }, -- removes separators
-		globalstatus = true
+		globalstatus = true,
 	},
 })
 
@@ -205,11 +204,11 @@ require("config-telescope")
 -- Enable gc
 require("Comment").setup()
 
-require("ibl").setup {
+require("ibl").setup({
 	scope = {
-		enabled = false -- Disable scoped highlighting when treesitter is enabled, it's neat but annoying.
-	}
-}
+		enabled = false, -- Disable scoped highlighting when treesitter is enabled, it's neat but annoying.
+	},
+})
 
 -- Terminal configuration
 require("config-terminal")
