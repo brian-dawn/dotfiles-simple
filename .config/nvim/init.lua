@@ -18,24 +18,29 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
-	{ "nvim-treesitter/nvim-treesitter" }, --
-	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" }, --
-	{ "williamboman/mason.nvim" }, --
-	{ "williamboman/mason-lspconfig.nvim" }, --
-	{ "neovim/nvim-lspconfig" }, --
-	{ "hrsh7th/cmp-nvim-lsp" }, --
-	{ "hrsh7th/nvim-cmp" }, --
-	{ "L3MON4D3/LuaSnip" }, --
+	-- LSP setup.
+	{ "nvim-treesitter/nvim-treesitter" },
+	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
+	{ "williamboman/mason.nvim" },
+	{ "williamboman/mason-lspconfig.nvim" },
+	{ "neovim/nvim-lspconfig" },
+	{ "hrsh7th/cmp-nvim-lsp" },
+	{ "hrsh7th/nvim-cmp" },
+	{ "L3MON4D3/LuaSnip" },
 
-	{ "folke/tokyonight.nvim" }, --
-	{ "stevedylandev/flexoki-nvim", name = "flexoki" }, --
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }, --
-	{ "AstroNvim/astrotheme" }, --
+	-- Colorschemes.
+	{ "folke/tokyonight.nvim" },
+	{ "stevedylandev/flexoki-nvim", name = "flexoki" },
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{ "AstroNvim/astrotheme" },
 
-	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, --
+	-- Adds indent guides.
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 
-	{ "akinsho/toggleterm.nvim", version = "*", config = true }, --
+	-- Hover terminals among other things.
+	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 
+	-- Help menu to show keybindings.
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
@@ -43,13 +48,11 @@ require("lazy").setup({
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
 		end,
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
+		opts = {},
 	},
 
+	-- Enhanced UI elements such as a better command bar,
+	-- and better LSP help text as you type.
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
@@ -59,24 +62,27 @@ require("lazy").setup({
 			},
 		},
 		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
-			"rcarriga/nvim-notify",
 		},
-	}, --
+	},
 
-	{ "nvim-lualine/lualine.nvim" }, --
-	{ "tpope/vim-surround" }, --
-	{ "zbirenbaum/copilot.lua" }, --
+	-- A nicer status line.
+	{ "nvim-lualine/lualine.nvim" },
 
-	{ "NMAC427/guess-indent.nvim" }, --
+	-- Change surrounding characters.
+	{ "tpope/vim-surround" },
 
-	{ "windwp/nvim-autopairs" }, --
-	{ "windwp/nvim-ts-autotag" }, --
+	-- Github Copilot integration.
+	{ "zbirenbaum/copilot.lua" },
 
+	-- Auto guess indentation level from file.
+	{ "NMAC427/guess-indent.nvim" },
+
+	-- Treesitter auto pairs.
+	{ "windwp/nvim-autopairs" },
+	{ "windwp/nvim-ts-autotag" },
+
+	-- Telescope fuzzy finder.
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
@@ -98,34 +104,37 @@ require("lazy").setup({
 			})
 			require("telescope").load_extension("undo")
 		end,
-	}, --
+	},
 
+	-- Show diagnostics in a nicer way.
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
-	}, -- Collect diagnostics
+		opts = {},
+	},
 
-	{ "tpope/vim-fugitive" }, --
+	-- Git integration.
+	{ "tpope/vim-fugitive" },
 
-	{ "phaazon/hop.nvim" }, --
+	-- Hop to word.
+	{ "phaazon/hop.nvim" },
 
-	{ "nvim-tree/nvim-tree.lua" }, --
-	{ "nvim-tree/nvim-web-devicons" }, --
+	-- File explorer.
+	{ "nvim-tree/nvim-tree.lua" },
+	{ "nvim-tree/nvim-web-devicons" },
 
-	{ "lewis6991/gitsigns.nvim" }, --
-	{ "pocco81/auto-save.nvim" }, --
+	-- Git sigils in gutter.
+	{ "lewis6991/gitsigns.nvim" },
+
+	-- Auto save documents.
+	{ "pocco81/auto-save.nvim" },
+
+	-- Comment out blocks of code.
 	{
 		"numToStr/Comment.nvim",
-		opts = {
-			-- add any options here
-		},
+		opts = {},
 		lazy = false,
-	}, --
+	},
 })
 
 -- setup auto save
