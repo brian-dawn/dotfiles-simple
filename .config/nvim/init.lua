@@ -127,6 +127,11 @@ require("catppuccin").setup({
 vim.cmd.colorscheme("catppuccin")
 
 require("lualine").setup({
+  sections = {
+    lualine_c = {
+      { 'filename', path = 1 }
+    },
+  },
 	options = {
 		section_separators = { "", "" }, -- removes separators
 		component_separators = { "", "" }, -- removes separators
