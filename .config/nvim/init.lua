@@ -130,6 +130,7 @@ require("lualine").setup({
 	options = {
 		section_separators = { "", "" }, -- removes separators
 		component_separators = { "", "" }, -- removes separators
+		globalstatus = true
 	},
 })
 
