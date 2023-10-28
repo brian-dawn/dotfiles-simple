@@ -10,8 +10,17 @@ require("conform").setup({
 		typescript = { { "prettierd", "prettier" } },
 		html = { { "prettierd", "prettier" } },
 		json = { { "prettierd", "prettier" } },
-		rust = { "rustfmt" },
 		ocaml = { "ocamlformat" },
+		rust = { "custom_rust_fmt" },
+	},
+	formatters = {
+
+		custom_rust_fmt = {
+
+			command = "rustfmt",
+			args = { "--emit=stdout", "--edition", "2021" },
+			stdin = true,
+		},
 	},
 })
 
