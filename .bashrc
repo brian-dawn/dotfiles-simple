@@ -81,6 +81,12 @@ __git_complete gco _git_checkout
 
 source $(tamago activate)
 
+# ocaml
+# Check if opam is installed.
+if command -v opam &> /dev/null
+then
+    source $(opam env)
+fi
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
