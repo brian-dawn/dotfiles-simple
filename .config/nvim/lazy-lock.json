@@ -5,7 +5,7 @@
   "auto-save.nvim": { "branch": "main", "commit": "94003fec719ac04dac8a055c9b1baab6de4ac152" },
   "catppuccin": { "branch": "main", "commit": "b359f3eec32dcc6b7c9a26901dc235bbb6cd8a0b" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "44b16d11215dce86f253ce0c30949813c0a90765" },
-  "conform.nvim": { "branch": "master", "commit": "4db76a68b47aa6e9777e4da4aed16f0fff74920e" },
+  "conform.nvim": { "branch": "master", "commit": "253878436e2b6d73dfd91ccf0ac12d04cc683d34" },
   "copilot.lua": { "branch": "master", "commit": "688762a3999eeee54b78f447719854f52672ec02" },
   "flexoki": { "branch": "main", "commit": "5298c24a84fa62366d1d0ff86950cd05d6f4e3d9" },
   "gitsigns.nvim": { "branch": "main", "commit": "af0f583cd35286dd6f0e3ed52622728703237e50" },

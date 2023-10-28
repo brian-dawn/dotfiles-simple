@@ -41,7 +41,7 @@ require("lazy").setup({
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 
 	-- Improved and auto formatting.
-	{ "https://github.com/folke/conform.nvim" },
+	{ "stevearc/conform.nvim" },
 
 	-- Help menu to show keybindings.
 	{

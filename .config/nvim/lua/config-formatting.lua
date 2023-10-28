@@ -10,7 +10,7 @@ require("conform").setup({
 		typescript = { { "prettierd", "prettier" } },
 		html = { { "prettierd", "prettier" } },
 		json = { { "prettierd", "prettier" } },
-		rust = { "rustfmt" },
+		rust = { "cargo fmt" },
 		ocaml = { "ocamlformat" },
 	},
 })
