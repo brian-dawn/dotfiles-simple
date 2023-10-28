@@ -40,6 +40,9 @@ require("lazy").setup({
 	-- Hover terminals among other things.
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 
+	-- Improved and auto formatting.
+	{ "https://github.com/folke/conform.nvim" },
+
 	-- Help menu to show keybindings.
 	{
 		"folke/which-key.nvim",
@@ -127,7 +130,9 @@ require("lazy").setup({
 	{ "lewis6991/gitsigns.nvim" },
 
 	-- Auto save documents.
-	{ "pocco81/auto-save.nvim" },
+	{
+		"zoriya/auto-save.nvim"
+	},
 
 	-- Comment out blocks of code.
 	{
@@ -136,9 +141,6 @@ require("lazy").setup({
 		lazy = false,
 	},
 })
-
--- setup auto save
-require("auto-save").setup()
 
 require("astrotheme").setup()
 require("catppuccin").setup({
@@ -185,6 +187,8 @@ require("guess-indent").setup({
 -- LSP setup.
 require("config-lsp")
 require("config-copilot")
+
+require("config-formatting")
 
 require("gitsigns").setup()
 
