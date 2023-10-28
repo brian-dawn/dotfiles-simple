@@ -86,6 +86,16 @@ require("lazy").setup({
 		end,
 	}, --
 
+{
+ "folke/trouble.nvim",
+ dependencies = { "nvim-tree/nvim-web-devicons" },
+ opts = {
+  -- your configuration comes here
+  -- or leave it empty to use the default settings
+  -- refer to the configuration section below
+ },
+}, -- Collect diagnostics
+
 
 	{ "tpope/vim-fugitive" }, --
 
@@ -189,6 +199,8 @@ require("ibl").setup {
 
 -- Terminal configuration
 require("config-terminal")
+
+require("config-bindings")
 
 require("hop").setup()
 vim.keymap.set("n", "<leader>w", ":HopWord<cr>", { noremap = true, silent = true })
