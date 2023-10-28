@@ -85,7 +85,7 @@ source $(tamago activate)
 # Check if opam is installed.
 if command -v opam &> /dev/null
 then
-    source $(opam env) &> /dev/null
+    eval $(opam env)
 fi
 
 # bun
