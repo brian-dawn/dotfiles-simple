@@ -221,6 +221,15 @@ vim.opt.shiftwidth = 4
 -- Equivalent to 'set expandtab'
 vim.opt.expandtab = true
 
+-- Always have 8 characters of context around the cursor
+vim.opt.scrolloff = 8
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+
 -- Configure telescope.
 require("config-telescope")
 
