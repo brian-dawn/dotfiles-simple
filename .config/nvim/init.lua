@@ -249,9 +249,6 @@ require("config-bindings")
 
 require("hop").setup()
 
--- Clipboard configuration
-vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
-
 vim.opt.wrap = false
 
 require("show-help")
