@@ -164,6 +164,23 @@ require("lualine").setup({
 -- Tree sitter (used by some plugins e.g. html tag closing).
 require("nvim-treesitter.configs").setup({
 	auto_install = true,
+	ensure_installed = {
+		"bash",
+		"go",
+		"css",
+		"html",
+		"javascript",
+		"json",
+		"lua",
+		"python",
+		"rust",
+		"toml",
+		"tsx",
+		"typescript",
+		"yaml",
+		"svelte",
+		"ocaml",
+	},
 })
 
 require("nvim-tree").setup({
