@@ -254,9 +254,6 @@ vim.opt.title = true
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 
--- Disable separators.
-vim.opt.fillchars = { vert = " " }
-
 -- neovide
 if vim.g.neovide then
 	-- Enable copy paste on macos with cmd
