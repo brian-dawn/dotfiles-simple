@@ -112,3 +112,16 @@ vim.diagnostic.config({
 	-- update_in_insert = true,
 	severity_sort = true,
 })
+
+local nvim_lsp = require("lspconfig")
+
+nvim_lsp.rust_analyzer.setup({
+	settings = {
+		["rust-analyzer"] = {
+			-- Enable procedural macro expansion
+			procMacro = {
+				enable = true,
+			},
+		},
+	},
+})
