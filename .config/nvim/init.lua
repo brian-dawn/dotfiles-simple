@@ -67,8 +67,23 @@ require("lazy").setup({
 		end,
 	},
 
+	-- Show progress of LSP.
+	{
+		"linrongbin16/lsp-progress.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lsp-progress").setup()
+		end,
+	},
+
 	-- A nicer status line.
-	{ "nvim-lualine/lualine.nvim" },
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			"linrongbin16/lsp-progress.nvim",
+		},
+	},
 
 	-- Change surrounding characters.
 	{ "tpope/vim-surround" },
@@ -150,19 +165,7 @@ require("catppuccin").setup({
 })
 vim.cmd.colorscheme("astromars")
 
-require("lualine").setup({
-	sections = {
-		lualine_c = {
-			{ "filename", path = 1 },
-			{ "navic" },
-		},
-	},
-	options = {
-		section_separators = { "", "" }, -- removes separators
-		component_separators = { "", "" }, -- removes separators
-		globalstatus = true,
-	},
-})
+require("config-lualine")
 
 -- Tree sitter (used by some plugins e.g. html tag closing).
 require("nvim-treesitter.configs").setup({
