@@ -29,7 +29,7 @@ require("lazy").setup({
 	{ "L3MON4D3/LuaSnip" },
 
 	-- Code status line (what method are you in at the top).
-	{ 'SmiteshP/nvim-navic' },
+	{ "SmiteshP/nvim-navic" },
 
 	-- Colorschemes.
 	{ "folke/tokyonight.nvim" },
@@ -57,19 +57,14 @@ require("lazy").setup({
 		opts = {},
 	},
 
-	-- Enhanced UI elements such as a better command bar,
-	-- and better LSP help text as you type.
+	-- Show signature of function as you type.
 	{
-		"folke/noice.nvim",
+		"ray-x/lsp_signature.nvim",
 		event = "VeryLazy",
-		opts = {
-			messages = {
-				enabled = false,
-			},
-		},
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-		},
+		opts = {},
+		config = function(_, opts)
+			require("lsp_signature").setup(opts)
+		end,
 	},
 
 	-- A nicer status line.
@@ -143,6 +138,10 @@ require("lazy").setup({
 		opts = {},
 		lazy = false,
 	},
+})
+
+require("lsp_signature").setup({
+	hint_enable = false,
 })
 
 require("astrotheme").setup()
