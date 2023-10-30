@@ -28,6 +28,9 @@ require("lazy").setup({
 	{ "hrsh7th/nvim-cmp" },
 	{ "L3MON4D3/LuaSnip" },
 
+	-- Code status line (what method are you in at the top).
+	{ 'SmiteshP/nvim-navic' },
+
 	-- Colorschemes.
 	{ "folke/tokyonight.nvim" },
 	{ "stevedylandev/flexoki-nvim", name = "flexoki" },
@@ -152,6 +155,7 @@ require("lualine").setup({
 	sections = {
 		lualine_c = {
 			{ "filename", path = 1 },
+			{ "navic" },
 		},
 	},
 	options = {

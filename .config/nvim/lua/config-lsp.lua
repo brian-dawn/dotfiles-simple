@@ -4,6 +4,10 @@ local which_key = require("which-key")
 lsp_zero.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
 
+    if client.server_capabilities.documentSymbolProvider then
+        require('nvim-navic').attach(client, bufnr)
+    end
+
 	vim.keymap.set("n", "gd", function()
 		vim.lsp.buf.definition()
 	end, opts)
@@ -63,6 +67,8 @@ lsp_zero.on_attach(function(client, bufnr)
 		["]d"] = "Previous diagnostic",
 	}, { buffer = bufnr })
 end)
+
+
 
 require("mason").setup({})
 require("mason-lspconfig").setup({
