@@ -154,9 +154,15 @@ require("lazy").setup({
 	-- Hop to word.
 	{ "phaazon/hop.nvim" },
 
-	-- File explorer.
-	{ "nvim-tree/nvim-tree.lua" },
-	{ "nvim-tree/nvim-web-devicons" },
+	{
+	    "nvim-neo-tree/neo-tree.nvim",
+	    branch = "v3.x",
+	    dependencies = {
+	      "nvim-lua/plenary.nvim",
+	      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+	      "MunifTanjim/nui.nvim",
+	    }
+	},
 
 	-- Git sigils in gutter.
 	{ "lewis6991/gitsigns.nvim" },
@@ -208,10 +214,11 @@ require("nvim-treesitter.configs").setup({
 	},
 })
 
-require("nvim-tree").setup({
-	update_focused_file = {
-		enable = true,
-	},
+
+require("neo-tree").setup({
+	filesystem = {
+    follow_current_file = true,
+  },
 })
 require("nvim-web-devicons").setup()
 
