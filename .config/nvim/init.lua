@@ -36,6 +36,11 @@ require("lazy").setup({
 	{ "stevedylandev/flexoki-nvim", name = "flexoki" },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ "AstroNvim/astrotheme" },
+	{ "rose-pine/neovim", name = "rose-pine" },
+	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = {} },
+	{ "navarasu/onedark.nvim" },
+	{ "phha/zenburn.nvim" },
+	{ "theacodes/witchhazel" },
 
 	-- Adds indent guides.
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
@@ -220,6 +225,9 @@ vim.wo.number = true
 
 -- Equivalent to 'set tabstop=4'
 vim.opt.tabstop = 4
+
+-- Set tab to be 4 spaces.
+vim.opt.softtabstop = 4
 
 -- Equivalent to 'set shiftwidth=4'
 vim.opt.shiftwidth = 4
