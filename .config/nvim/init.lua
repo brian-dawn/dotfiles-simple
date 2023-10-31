@@ -1,6 +1,14 @@
 -- Formatted with stylua
 -- https://github.com/JohnnyMorganz/StyLua
 -- stylua .
+
+---------------------------------------------------------
+-- Useful commands that aren't always mapped to stuff.
+---------------------------------------------------------
+-- :Telescope colorscheme
+--    Live change colorschemes with previews.
+--
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 -- Auto-install lazy.nvim if not present.
@@ -41,6 +49,7 @@ require("lazy").setup({
 	{ "navarasu/onedark.nvim" },
 	{ "phha/zenburn.nvim" },
 	{ "theacodes/witchhazel" },
+	{ "rebelot/kanagawa.nvim" },
 
 	-- Adds indent guides.
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
@@ -112,6 +121,11 @@ require("lazy").setup({
 		},
 		config = function()
 			require("telescope").setup({
+				pickers = {
+					colorscheme = {
+						enable_preview = true,
+					},
+				},
 				extensions = {
 					undo = {
 
