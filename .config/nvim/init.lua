@@ -138,7 +138,19 @@ require("lazy").setup({
 				},
 			})
 			require("telescope").load_extension("undo")
+			require("telescope").load_extension("aerial")
 		end,
+	},
+
+	-- Navigate code at a high level
+	{
+		"stevearc/aerial.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
 	},
 
 	-- Show diagnostics in a nicer way.
@@ -155,13 +167,13 @@ require("lazy").setup({
 	{ "phaazon/hop.nvim" },
 
 	{
-	    "nvim-neo-tree/neo-tree.nvim",
-	    branch = "v3.x",
-	    dependencies = {
-	      "nvim-lua/plenary.nvim",
-	      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-	      "MunifTanjim/nui.nvim",
-	    }
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		},
 	},
 
 	-- Git sigils in gutter.
@@ -214,11 +226,10 @@ require("nvim-treesitter.configs").setup({
 	},
 })
 
-
 require("neo-tree").setup({
 	filesystem = {
-    follow_current_file = true,
-  },
+		follow_current_file = true,
+	},
 })
 require("nvim-web-devicons").setup()
 

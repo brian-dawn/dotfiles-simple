@@ -31,6 +31,8 @@ vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set("v", "<leader>p", '"+p')
 vim.keymap.set("n", "<leader>P", '"+P')
 
+vim.keymap.set("n", "<leader>va", ":Telescope aerial<CR>")
+
 local which_key = require("which-key")
 which_key.register({
 	["<leader>x"] = {
@@ -42,15 +44,11 @@ which_key.register({
 		l = "Loclist",
 	},
 	["<leader>w"] = "Hop to Word",
-	["v"] = {
-		name = "+visual",
-		J = "Move lines down",
-		K = "Move lines up",
-	},
 	["<leader>y"] = "Yank to system clipboard",
 	["<leader>Y"] = "Yank to system clipboard (whole line)",
 	["<leader>p"] = "Paste from system clipboard",
 	["<leader>P"] = "Paste from system clipboard",
+	["<leader>va"] = "Navigate code",
 }, {})
 
 which_key.register({
