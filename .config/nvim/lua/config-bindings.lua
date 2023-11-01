@@ -7,12 +7,6 @@ end)
 vim.keymap.set("n", "<leader>xd", function()
 	require("trouble").toggle("document_diagnostics")
 end)
-vim.keymap.set("n", "<leader>xq", function()
-	require("trouble").toggle("quickfix")
-end)
-vim.keymap.set("n", "<leader>xl", function()
-	require("trouble").toggle("loclist")
-end)
 
 vim.keymap.set("n", "<leader>w", ":HopWord<cr>", { noremap = true, silent = true })
 
@@ -40,8 +34,6 @@ which_key.register({
 		x = "Toggle Trouble",
 		w = "Workspace Diagnostics",
 		d = "Document Diagnostics",
-		q = "Quickfix",
-		l = "Loclist",
 	},
 	["<leader>w"] = "Hop to Word",
 	["<leader>y"] = "Yank to system clipboard",
