@@ -8,7 +8,7 @@ return {
 
   color_scheme_dirs = { os.getenv("HOME") .. "/.config/wezterm/colors/" },
 
-  color_scheme = "Flexoki Light",
+  color_scheme = "Flexoki Dark",
 
 
 
