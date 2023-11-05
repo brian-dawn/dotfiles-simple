@@ -249,8 +249,7 @@ require("config-lsp")
 require("config-copilot")
 
 require("config-formatting")
-
-require("gitsigns").setup()
+require("config-git")
 
 require("nvim-autopairs").setup()
 require("nvim-ts-autotag").setup()
