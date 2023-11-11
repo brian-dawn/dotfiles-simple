@@ -4,7 +4,7 @@ require("conform").setup({
 		lua = { "stylua" },
 
 		-- Conform will run multiple formatters sequentially
-		python = { "isort", "black" },
+		python = { "ruff", "black" },
 		-- Use a sub-list to run only the first available formatter
 		javascript = { { "prettierd", "prettier" } },
 		typescript = { { "prettierd", "prettier" } },
@@ -14,6 +14,7 @@ require("conform").setup({
 		json = { { "prettierd", "prettier" } },
 		ocaml = { "ocamlformat" },
 		rust = { "custom_rust_fmt" },
+		go = { "gofmt" },
 	},
 	formatters = {
 
