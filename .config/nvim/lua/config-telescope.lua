@@ -5,6 +5,7 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+vim.keymap.set("n", "<leader>fr", builtin.resume, {})
 
 vim.keymap.set("n", "<leader>gs", ":Telescope git_status<CR>", opts)
 vim.keymap.set("n", "<leader>gc", ":Telescope git_commits<CR>", opts)
@@ -26,6 +27,7 @@ which_key.register({
 		g = "Live grep",
 		b = "Buffers",
 		h = "Help tags",
+		r = "Resume last picker",
 	},
 	["<leader>g"] = {
 		name = "+git",
