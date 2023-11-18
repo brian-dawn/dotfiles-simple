@@ -207,10 +207,10 @@ require("config-lualine")
 -- Tree sitter (used by some plugins e.g. html tag closing).
 require("nvim-treesitter.configs").setup({
 	auto_install = true,
-    highlight = {
-      enable = true, -- false will disable the whole extension
-      additional_vim_regex_highlighting = false,
-    },
+	highlight = {
+		enable = true, -- false will disable the whole extension
+		additional_vim_regex_highlighting = false,
+	},
 	ensure_installed = {
 		"astro",
 		"bash",
@@ -234,9 +234,20 @@ require("nvim-treesitter.configs").setup({
 require("neo-tree").setup({
 	filesystem = {
 		follow_current_file = {
-			enabled = true
+			enabled = true,
 		},
 	},
+	source_selector = {
+		statusline = false,
+		winbar = true,
+		sources = {
+			{ source = "filesystem" },
+			{ source = "buffers" },
+			{ source = "git_status" },
+			{ source = "document_symbols" },
+		},
+	},
+	sources = { "filesystem", "buffers", "git_status", "document_symbols" },
 })
 require("nvim-web-devicons").setup()
 
