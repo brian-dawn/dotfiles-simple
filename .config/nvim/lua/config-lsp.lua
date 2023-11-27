@@ -4,9 +4,10 @@ local which_key = require("which-key")
 lsp_zero.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
 
-    if client.server_capabilities.documentSymbolProvider then
-        require('nvim-navic').attach(client, bufnr)
-    end
+	-- Show the function/class/whatever we are in.
+	if client.server_capabilities.documentSymbolProvider then
+		require("nvim-navic").attach(client, bufnr)
+	end
 
 	vim.keymap.set("n", "gd", function()
 		vim.lsp.buf.definition()
@@ -68,8 +69,6 @@ lsp_zero.on_attach(function(client, bufnr)
 	}, { buffer = bufnr })
 end)
 
-
-
 require("mason").setup({})
 require("mason-lspconfig").setup({
 	ensure_installed = { "tsserver", "rust_analyzer" },
@@ -101,9 +100,9 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-		["<tab>"] = cmp.mapping.confirm({ select = true }),
-		["<enter>"] = cmp.mapping.confirm({ select = true }),
-		["<C-Space>"] = cmp.mapping.complete(),
+		["<tab>"] = cmp.mapping.confirm({ select = false }),
+		["<enter>"] = cmp.mapping.confirm({ select = false }),
+		["<C-space>"] = cmp.mapping.complete(),
 	}),
 })
 
