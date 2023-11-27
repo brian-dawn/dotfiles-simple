@@ -187,7 +187,7 @@ require("astrotheme").setup()
 require("catppuccin").setup({
 	term_colors = true,
 })
-vim.cmd.colorscheme("astromars")
+vim.cmd.colorscheme("catpuccin")
 
 require("config-lualine")
 
