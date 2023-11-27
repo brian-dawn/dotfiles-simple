@@ -15,8 +15,8 @@ vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", opts)
 -- Also add find_files as ctrl + p
 vim.keymap.set("n", "<C-p>", builtin.find_files, {})
 
--- Make escape close telescope (no modes, sorry!)
-
+-- When viewing the undo history you can press <C-enter> or <C-r> to go back to that state.
+-- You can also just press enter to yank the additions to the current buffer.
 vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
 
 local which_key = require("which-key")
