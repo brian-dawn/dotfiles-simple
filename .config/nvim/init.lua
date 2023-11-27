@@ -284,6 +284,9 @@ vim.opt.scrolloff = 8
 vim.opt.swapfile = false
 vim.opt.backup = false
 
+-- Use relative line numbers to make jumping around faster.
+vim.wo.relativenumber = true
+
 -- Configure telescope.
 require("config-telescope")
 
