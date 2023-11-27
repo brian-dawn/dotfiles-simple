@@ -7,7 +7,6 @@
 ---------------------------------------------------------
 -- :Telescope colorscheme
 --    Live change colorschemes with previews.
---
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -178,11 +177,6 @@ require("lazy").setup({
 
 	-- Git sigils in gutter.
 	{ "lewis6991/gitsigns.nvim" },
-
-	-- Auto save documents.
-	{
-		"zoriya/auto-save.nvim",
-	},
 
 	-- Comment out blocks of code.
 	{
@@ -363,3 +357,12 @@ if vim.fn.has("wsl") == 1 then
 		cache_enabled = 0,
 	}
 end
+
+-- Auto save on focus lost.
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
+	callback = function()
+		if vim.bo.modified and not vim.bo.readonly and vim.fn.expand("%") ~= "" and vim.bo.buftype == "" then
+			vim.api.nvim_command("silent update")
+		end
+	end,
+})
