@@ -152,13 +152,6 @@ require("lazy").setup({
 		},
 	},
 
-	-- Show diagnostics in a nicer way.
-	{
-		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = {},
-	},
-
 	-- Git integration.
 	{ "tpope/vim-fugitive" },
 
