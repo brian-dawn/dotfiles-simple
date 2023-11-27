@@ -287,6 +287,10 @@ require("config-telescope")
 require("Comment").setup()
 
 require("ibl").setup({
+	-- Change the ibl indent character to a skinnier bar.
+	indent = {
+		char = "│",
+	},
 	scope = {
 		enabled = false, -- Disable scoped highlighting when treesitter is enabled, it's neat but annoying.
 	},
