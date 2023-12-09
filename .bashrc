@@ -57,16 +57,10 @@ fi
 # Flutter
 export PATH="$HOME/software/flutter/bin:$PATH"
 
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 . "$HOME/.cargo/env"
-
-# Load anaconda if present.
-[ -f /opt/anaconda/etc/profile.d/conda.sh ] && source /opt/anaconda/etc/profile.d/conda.sh
-
-
 
 # If not present download git completions.
 if [ ! -f "$HOME/.git-completion.bash" ]
@@ -93,3 +87,25 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
 
 [ -f "/home/brian/.ghcup/env" ] && source "/home/brian/.ghcup/env" # ghcup-env
+
+
+function wvim() {
+    # Launch a new wezterm window running neovim.
+
+    # Store configuration options in an array
+    config_lines=(--config \""skip_close_confirmation_for_processes_named={'nvim', 'neovim'}"\" --config "windows_close_confirmation=NeverPrompt" --config hide_tab_bar_if_only_one_tab=true --config \""window_padding={left=0,right=0,top=0,bottom=0}"\")
+
+
+
+    # If WSL
+    if [ -n "$WSL_DISTRO_NAME" ]; then
+        # Launch wezterm with WSL
+        wsl_command=(/mnt/c/Users/Brian/scoop/shims/wezterm.exe "${config_lines[@]}" start -- wsl --cd "$(pwd)" -e nvim "$@")
+        eval "nohup ${wsl_command[@]} >/dev/null 2>&1 &"
+    else
+        # Launch wezterm with nvim
+        wezterm "${config_lines[@]}" --cd "$(pwd)" -e nvim "$@"  &
+    fi
+}
+
+
