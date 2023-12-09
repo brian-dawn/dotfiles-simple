@@ -85,6 +85,7 @@ local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
+	preselect = "none",
 	sources = {
 
 		{
