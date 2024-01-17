@@ -9,6 +9,8 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # Install fzf
 if [ ! -d "$HOME/.fzf" ] 
 then
@@ -20,6 +22,15 @@ then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+
+# Install zoxide if not already installed.
+if [ ! -f "$HOME/.local/bin/zoxide" ]
+then
+    echo "Installing zoxide"
+    curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+fi
+eval "$(zoxide init bash)"
 
 # Use ripgrep for fzf and ignore common macOS folders.
 export FZF_DEFAULT_COMMAND="rg --files --glob '!~/Library/*' --glob '!/System/*' --glob '!/Applications/*' --glob '!/Library/*' --glob '!/Users/Shared/*'"
@@ -93,7 +104,7 @@ function wvim() {
     # Launch a new wezterm window running neovim.
 
     # Store configuration options in an array
-    config_lines=(--config \""skip_close_confirmation_for_processes_named={'nvim', 'neovim'}"\" --config "windows_close_confirmation=NeverPrompt" --config hide_tab_bar_if_only_one_tab=true --config \""window_padding={left=0,right=0,top=0,bottom=0}"\")
+    config_lines=(--config hide_tab_bar_if_only_one_tab=true --config \""window_padding={left=0,right=0,top=0,bottom=0}"\")
 
 
 
@@ -101,10 +112,12 @@ function wvim() {
     if [ -n "$WSL_DISTRO_NAME" ]; then
         # Launch wezterm with WSL
         wsl_command=(/mnt/c/Users/Brian/scoop/shims/wezterm.exe "${config_lines[@]}" start -- wsl --cd "$(pwd)" -e nvim "$@")
+        echo $wsl_command
         eval "nohup ${wsl_command[@]} >/dev/null 2>&1 &"
     else
         # Launch wezterm with nvim
-        wezterm "${config_lines[@]}" --cd "$(pwd)" -e nvim "$@"  &
+        # wezterm "${config_lines[@]}" --cd "$(pwd)" -e nvim "$@"  &
+        wezterm "${config_lines[@]}" -e nvim "$@"  &
     fi
 }
 
