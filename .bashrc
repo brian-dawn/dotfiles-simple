@@ -31,6 +31,7 @@ then
     curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 fi
 eval "$(zoxide init bash)"
+alias cd='z'
 
 # Use ripgrep for fzf and ignore common macOS folders.
 export FZF_DEFAULT_COMMAND="rg --files --glob '!~/Library/*' --glob '!/System/*' --glob '!/Applications/*' --glob '!/Library/*' --glob '!/Users/Shared/*'"
