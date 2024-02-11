@@ -50,6 +50,7 @@ gt() {
 }
 
 
+source "$HOME/.rye/env"
 
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -84,8 +85,6 @@ source ~/.git-completion.bash
 
 __git_complete gco _git_checkout
 
-
-source $(tamago activate)
 
 # ocaml
 # Check if opam is installed.
