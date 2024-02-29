@@ -85,7 +85,6 @@ source ~/.git-completion.bash
 
 __git_complete gco _git_checkout
 
-
 # ocaml
 # Check if opam is installed.
 if command -v opam &> /dev/null

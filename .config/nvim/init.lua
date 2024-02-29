@@ -54,7 +54,14 @@ require("lazy").setup({
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 
 	-- Hover terminals among other things.
-	{ "akinsho/toggleterm.nvim", version = "*", config = true },
+	{ "akinsho/toggleterm.nvim", version = "*", opts = {
+		shade_terminals = false,
+		direction = 'horizontal',
+    	open_mapping = [[<c-`>]],
+    	hide_numbers = true,
+    	auto_scroll = true,
+		size = 30
+	} },
 
 	-- Improved and auto formatting.
 	{ "stevearc/conform.nvim" },
