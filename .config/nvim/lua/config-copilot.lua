@@ -42,11 +42,11 @@ require("copilot").setup({
 	server_opts_overrides = {},
 })
 
-vim.keymap.set("i", "<Tab>", function()
+vim.keymap.set("i", "<C-y>", function()
 	if require("copilot.suggestion").is_visible() then
 		require("copilot.suggestion").accept()
 	else
-		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-y>", true, false, true), "n", false)
 	end
 end, {
 	silent = true,

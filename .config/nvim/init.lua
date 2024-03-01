@@ -288,6 +288,9 @@ vim.opt.backup = false
 -- Use relative line numbers to make jumping around faster.
 vim.wo.relativenumber = true
 
+-- Disable the mode line via noshowmode
+vim.opt.showmode = false
+
 -- Configure telescope.
 require("config-telescope")
 
