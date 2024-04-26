@@ -20,7 +20,7 @@ then
     yes | ~/.fzf/install
     source ~/.bashrc
 fi
-
+export PATH="$HOME/.fzf/bin:$PATH"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 
