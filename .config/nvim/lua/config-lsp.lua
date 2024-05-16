@@ -9,23 +9,15 @@ lsp_zero.on_attach(function(client, bufnr)
 		require("nvim-navic").attach(client, bufnr)
 	end
 
+	vim.lsp.inlay_hint.enable()
 	vim.keymap.set("n", "gd", function()
 		vim.lsp.buf.definition()
-	end, opts)
-	vim.keymap.set("n", "K", function()
-		vim.lsp.buf.hover()
 	end, opts)
 	vim.keymap.set("n", "<leader>vco", ":Telescope lsp_outgoing_calls<CR>", opts)
 	vim.keymap.set("n", "<leader>vci", ":Telescope lsp_incoming_calls<CR>", opts)
 	vim.keymap.set("n", "<leader>vws", ":Telescope lsp_workspace_symbols<CR>", opts)
 	vim.keymap.set("n", "<leader>vd", function()
 		vim.diagnostic.open_float()
-	end, opts)
-	vim.keymap.set("n", "[d", function()
-		vim.diagnostic.goto_next()
-	end, opts)
-	vim.keymap.set("n", "]d", function()
-		vim.diagnostic.goto_prev()
 	end, opts)
 	vim.keymap.set("n", "<leader>vca", function()
 		vim.lsp.buf.code_action()
@@ -90,7 +82,7 @@ cmp.setup({
 
 		{
 			name = "nvim_lsp",
-			entry_filter = function(entry, ctx)
+			entry_filter = function(entry, tx)
 				-- Filter out snippets, even ones provided by the LSP.
 				return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
 			end,

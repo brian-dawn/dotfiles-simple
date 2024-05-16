@@ -177,13 +177,6 @@ require("lazy").setup({
 
 	-- Git sigils in gutter.
 	{ "lewis6991/gitsigns.nvim" },
-
-	-- Comment out blocks of code.
-	{
-		"numToStr/Comment.nvim",
-		opts = {},
-		lazy = false,
-	},
 })
 
 require("lsp_signature").setup({
@@ -293,9 +286,6 @@ vim.opt.showmode = false
 
 -- Configure telescope.
 require("config-telescope")
-
--- Enable gc
-require("Comment").setup()
 
 require("ibl").setup({
 	-- Change the ibl indent character to a skinnier bar.
