@@ -5,6 +5,7 @@ eval "$(starship init bash)"
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
 
+
 # Golang
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
@@ -121,3 +122,5 @@ function wvim() {
 }
 
 
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
