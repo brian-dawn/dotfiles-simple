@@ -34,9 +34,11 @@ require("lazy").setup({
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/nvim-cmp" },
 	{ "L3MON4D3/LuaSnip" },
+	{ "SmiteshP/nvim-navic" },
 
 	-- Code status line (what method are you in at the top).
-	{ "SmiteshP/nvim-navic" },
+	--{ "numToStr/Navigator.nvim" },
+	{ 'mrjones2014/smart-splits.nvim' },
 
 	-- Colorschemes.
 	{ "folke/tokyonight.nvim" },
@@ -49,6 +51,9 @@ require("lazy").setup({
 	{ "phha/zenburn.nvim" },
 	{ "theacodes/witchhazel" },
 	{ "rebelot/kanagawa.nvim" },
+
+	-- Wezterm Integrations
+	{ 'mrjones2014/smart-splits.nvim' },
 
 	-- Adds indent guides.
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
@@ -74,7 +79,9 @@ require("lazy").setup({
 			vim.o.timeout = true
 			vim.o.timeoutlen = 1300
 		end,
-		opts = {},
+		opts = {
+			notify = false
+		},
 	},
 
 	-- Show signature of function as you type.
