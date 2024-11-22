@@ -2,3 +2,4 @@ theme = "rose_pine"
 
 [editor]
 line-number = "relative"
+true-color = true
