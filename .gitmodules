@@ -1,3 +1,3 @@
-[submodule "/home/brian/.config/nvim"]
-	path = /home/brian/.config/nvim
+[submodule ".config/nvim"]
+	path = .config/nvim
 	url = git@github.com:brian-dawn/template.git
