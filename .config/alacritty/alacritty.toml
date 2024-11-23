@@ -7,23 +7,6 @@ option_as_alt = "Both"
 x = 35
 y = 35
 
-# [font]
-# size = 12.0
+[font]
 
-# [font.bold]
-# family = "JetBrainsMono Nerd Font"
-# style = "Heavy"
-
-# [font.bold_italic]
-# family = "JetBrainsMono Nerd Font"
-# style = "Heavy Italic"
-
-# [font.italic]
-# family = "JetBrainsMono Nerd Font"
-# style = "Medium Italic"
-
-# [font.normal]
-# family = "JetBrainsMono Nerd Font"
-# style = "Medium"
-
-
+normal = { family = "Hack Nerd Font" }
