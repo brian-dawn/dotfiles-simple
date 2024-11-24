@@ -1,0 +1,5 @@
+
+#!/bin/bash
+
+
+/usr/bin/git --git-dir=/root/.dotfiles-repo --work-tree=/root "$@"
