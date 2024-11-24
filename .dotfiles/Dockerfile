@@ -1,4 +1,5 @@
-FROM ubuntu:24.04
+FROM golang:1.23.3-bookworm
+
 
 RUN apt-get update && apt-get install -y \
     git \
@@ -42,15 +43,40 @@ RUN git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf \
 
 RUN git clone --bare https://github.com/brian-dawn/dotfiles-simple.git $HOME/.dotfiles-repo
 
+# Install NodeJS stuff.
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash \
+    && bash -c "source $HOME/.bashrc && nvm install --lts && nvm use --lts && npm install -g npm"
+
 
 # Install Python stuff.
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
 COPY config /usr/local/bin/config
 
+# Install LSPs.
+RUN bash -c "source $HOME/.bashrc                                            \
+    && npm i -g @astrojs/language-server                                     \
+    && npm i -g bash-language-server                                         \
+    &&  npm install -g dockerfile-language-server-nodejs                     \
+    && npm install -g @microsoft/compose-language-service                    \
+    && go install golang.org/x/tools/gopls@latest                            \
+    && go install github.com/go-delve/delve/cmd/dlv@latest                   \
+    && go install golang.org/x/tools/cmd/goimports@latest                    \
+    && go install github.com/nametake/golangci-lint-langserver@latest        \
+    && go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest \
+    && npm i -g vscode-langservers-extracted                                 \
+    "
+    
+
+
 
 RUN config checkout -f
 
 RUN config config status.showUntrackedFiles no
 
-CMD ["/bin/bash"]
+RUN bash -c "source $HOME/.bashrc"
+
+WORKDIR $HOME
+
+CMD ["bash", "-c", "cd $HOME && exec /bin/bash"]
+
