@@ -13,7 +13,12 @@ return {
     end,
   },
 
-	{ "zbirenbaum/copilot.lua" },
+  {
+      'zbirenbaum/copilot.lua',
+      cmd = 'Copilot',
+      event = 'InsertEnter',
+      config = true,
+  },
 
   {
   	"nvim-treesitter/nvim-treesitter",
