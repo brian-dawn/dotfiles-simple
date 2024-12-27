@@ -124,3 +124,4 @@ function wvim() {
 
 
 
+unset HISTIGNORE
