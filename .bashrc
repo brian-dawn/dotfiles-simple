@@ -56,8 +56,8 @@ gt() {
 
 export PATH="$HOME/.local/bin:$PATH"
 
-alias ls="exa";
-alias ll="exa -l";
+alias ls="eza";
+alias ll="eza -l";
 alias gs="git status";
 alias gco="git checkout";
 
