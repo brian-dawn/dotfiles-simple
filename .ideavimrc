@@ -1,0 +1,21 @@
+" Map Ctrl+` to open/activate terminal
+map <C-`> :action ActivateTerminalToolWindow<CR>
+
+" Optional: Map Ctrl+Esc or something else to jump back to editor
+map <C-Esc> :action ActivateEditorComponent<CR>
+
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+
+let mapleader = " "
+set surround
+
+" Normal mode: Comment current line
+nnoremap gcc :action CommentByLineComment<CR>
+
+" Visual mode: Comment selected block
+xnoremap gc :action CommentByLineComment<CR>
