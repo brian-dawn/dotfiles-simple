@@ -10,6 +10,8 @@ set smartcase
 set incsearch
 set hlsearch
 
+set visualbell
+set noerrorbells
 
 let mapleader = " "
 set surround
@@ -19,3 +21,7 @@ nnoremap gcc :action CommentByLineComment<CR>
 
 " Visual mode: Comment selected block
 xnoremap gc :action CommentByLineComment<CR>
+
+" Keep min and max lines 15 away from top to cursor.
+set scrolloff=15
+
