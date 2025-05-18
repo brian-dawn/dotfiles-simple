@@ -22,6 +22,6 @@ nnoremap gcc :action CommentByLineComment<CR>
 " Visual mode: Comment selected block
 xnoremap gc :action CommentByLineComment<CR>
 
-" Keep min and max lines 15 away from top to cursor.
-set scrolloff=15
+" Keep min and max lines 5 away from top to cursor.
+set scrolloff=5
 
