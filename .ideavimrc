@@ -26,3 +26,6 @@ nnoremap <leader>r :action Run<CR>
 
 " Debug
 nnoremap <leader>d :action Debug<CR>
+
+" Find usages
+map <leader>u <Action>(FindUsages)
