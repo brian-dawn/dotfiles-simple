@@ -1,9 +1,4 @@
-" Map Ctrl+` to open/activate terminal
-map <C-`> :action ActivateTerminalToolWindow<CR>
-
-" Optional: Map Ctrl+Esc or something else to jump back to editor
-map <C-Esc> :action ActivateEditorComponent<CR>
-
+let mapleader = " "
 
 set ignorecase
 set smartcase
@@ -25,3 +20,9 @@ xnoremap gc :action CommentByLineComment<CR>
 " Keep min and max lines 5 away from top to cursor.
 set scrolloff=5
 
+
+" Run
+nnoremap <leader>r :action Run<CR>
+
+" Debug
+nnoremap <leader>d :action Debug<CR>
