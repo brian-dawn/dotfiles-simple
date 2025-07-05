@@ -98,8 +98,8 @@ require("lazy").setup({
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
       vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
-      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
-      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
+      vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code action" })
+      vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
     end,
   },
   {
@@ -111,11 +111,11 @@ require("lazy").setup({
       )
       
       local builtin = require("telescope.builtin")
-      vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
-      vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
-      vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffers" })
-      vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find help" })
-      vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "Resume last search" })
+      vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "Find files" })
+      vim.keymap.set("n", "<leader>/", builtin.live_grep, { desc = "Global search" })
+      vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "Find buffers" })
+      vim.keymap.set("n", "<leader>?", builtin.help_tags, { desc = "Find help" })
+      vim.keymap.set("n", "<leader>.", builtin.resume, { desc = "Resume last search" })
     end,
   },
 })
