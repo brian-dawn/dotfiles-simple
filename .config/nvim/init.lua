@@ -50,6 +50,25 @@ require("lazy").setup({
     end,
   },
   {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup({
+        delay = 500,
+      })
+      
+      require("which-key").add({
+        { "<leader>f", desc = "Find files" },
+        { "<leader>/", desc = "Global search" },
+        { "<leader>b", desc = "Find buffers" },
+        { "<leader>?", desc = "Find help" },
+        { "<leader>.", desc = "Resume last search" },
+        { "<leader>l", group = "LSP" },
+        { "<leader>la", desc = "Code actions" },
+        { "<leader>lr", desc = "Rename" },
+      })
+    end,
+  },
+  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
