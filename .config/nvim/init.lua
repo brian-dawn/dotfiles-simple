@@ -45,11 +45,23 @@ vim.api.nvim_create_autocmd("User", {
 
 require("lazy").setup({
   {
+    "RRethy/base16-nvim",
+    priority = 1000,
+  },
+  {
+    "MaximilianLloyd/eyes.nvim",
+    priority = 1000,
+  },
+  {
+    "altercation/vim-colors-solarized",
+    priority = 1000,
+  },
+  {
     "rose-pine/neovim",
     name = "rose-pine",
     priority = 1000,
     config = function()
-      vim.cmd("colorscheme rose-pine")
+      vim.cmd("colorscheme rose-pine-dawn")
     end,
   },
   {
@@ -147,4 +159,5 @@ require("lazy").setup({
     end,
   },
 })
+
 
