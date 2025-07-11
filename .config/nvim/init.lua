@@ -89,13 +89,18 @@ require("lazy").setup({
     "rose-pine/neovim",
     name = "rose-pine",
     priority = 1000,
-    config = function()
-      vim.cmd("colorscheme rose-pine-dawn")
-    end,
   },
   {
     "shaunsingh/nord.nvim",
     priority = 1000,
+  },
+  {
+    "kepano/flexoki-neovim",
+    name = "flexoki",
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme flexoki-dark")
+    end,
   },
   {
     "nvim-tree/nvim-web-devicons",
