@@ -45,15 +45,44 @@ vim.api.nvim_create_autocmd("User", {
 
 require("lazy").setup({
   {
-    "RRethy/base16-nvim",
-    priority = 1000,
-  },
-  {
     "MaximilianLloyd/eyes.nvim",
     priority = 1000,
   },
   {
     "altercation/vim-colors-solarized",
+    priority = 1000,
+  },
+  {
+    "bettervim/yugen.nvim",
+    priority = 1000,
+  },
+  {
+    "ayu-theme/ayu-vim",
+    priority = 1000,
+  },
+  {
+    "thesimonho/kanagawa-paper.nvim",
+    priority = 1000,
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    priority = 1000,
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+  },
+  {
+    "webhooked/kanso.nvim",
+    priority = 1000,
+  },
+  {
+    "sainnhe/everforest",
     priority = 1000,
   },
   {
@@ -63,6 +92,10 @@ require("lazy").setup({
     config = function()
       vim.cmd("colorscheme rose-pine-dawn")
     end,
+  },
+  {
+    "shaunsingh/nord.nvim",
+    priority = 1000,
   },
   {
     "nvim-tree/nvim-web-devicons",
@@ -83,6 +116,7 @@ require("lazy").setup({
         { "<leader>b", desc = "Find buffers" },
         { "<leader>?", desc = "Find help" },
         { "<leader>.", desc = "Resume last search" },
+        { "<leader>C", desc = "Choose colorscheme" },
         { "<leader>l", group = "LSP" },
         { "<leader>la", desc = "Code actions" },
         { "<leader>lr", desc = "Rename" },
@@ -147,8 +181,18 @@ require("lazy").setup({
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("telescope").setup({
-        }
-      )
+        defaults = {
+          layout_strategy = "horizontal",
+          layout_config = {
+            preview_width = 0.6,
+          },
+        },
+        pickers = {
+          colorscheme = {
+            enable_preview = true,
+          },
+        },
+      })
       
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "Find files" })
@@ -156,6 +200,9 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "Find buffers" })
       vim.keymap.set("n", "<leader>?", builtin.help_tags, { desc = "Find help" })
       vim.keymap.set("n", "<leader>.", builtin.resume, { desc = "Resume last search" })
+      vim.keymap.set("n", "<leader>C", function() 
+        builtin.colorscheme({ enable_preview = true })
+      end, { desc = "Choose colorscheme" })
     end,
   },
   {
@@ -169,5 +216,6 @@ require("lazy").setup({
     end,
   },
 })
+
 
 
