@@ -130,6 +130,7 @@ require("lazy").setup({
         { "<leader>?", desc = "Find help" },
         { "<leader>.", desc = "Resume last search" },
         { "<leader>C", desc = "Choose colorscheme" },
+        { "<leader>T", desc = "Toggle light/dark mode" },
         { "<leader>l", group = "LSP" },
         { "<leader>la", desc = "Code actions" },
         { "<leader>lr", desc = "Rename" },
@@ -216,6 +217,14 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>C", function() 
         builtin.colorscheme({ enable_preview = true })
       end, { desc = "Choose colorscheme" })
+      
+      vim.keymap.set("n", "<leader>T", function()
+        if vim.o.background == "dark" then
+          vim.o.background = "light"
+        else
+          vim.o.background = "dark"
+        end
+      end, { desc = "Toggle light/dark mode" })
     end,
   },
   {
