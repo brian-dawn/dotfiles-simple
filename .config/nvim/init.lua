@@ -78,7 +78,7 @@ require("lazy").setup({
     priority = 1000,
   },
   {
-    "jnurmine/Zenburn",
+    "phha/zenburn.nvim",
     priority = 1000,
   },
   {
@@ -100,6 +100,10 @@ require("lazy").setup({
   },
   {
     "shaunsingh/nord.nvim",
+    priority = 1000,
+  },
+  {
+    "AlexvZyl/nordic.nvim",
     priority = 1000,
   },
   {
