@@ -78,6 +78,14 @@ require("lazy").setup({
     priority = 1000,
   },
   {
+    "jnurmine/Zenburn",
+    priority = 1000,
+  },
+  {
+    "sainnhe/gruvbox-material",
+    priority = 1000,
+  },
+  {
     "webhooked/kanso.nvim",
     priority = 1000,
   },
@@ -165,8 +173,36 @@ require("lazy").setup({
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim" },
     config = function()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      capabilities.textDocument.semanticTokens = {
+        dynamicRegistration = false,
+        tokenTypes = {
+          "namespace", "type", "class", "enum", "interface", "struct",
+          "typeParameter", "parameter", "variable", "property", "enumMember",
+          "event", "function", "method", "macro", "keyword", "modifier",
+          "comment", "string", "number", "regexp", "operator", "decorator"
+        },
+        tokenModifiers = {
+          "declaration", "definition", "readonly", "static", "deprecated",
+          "abstract", "async", "modification", "documentation", "defaultLibrary"
+        },
+        formats = {"relative"}
+      }
+      
       require("mason-lspconfig").setup({
         automatic_installation = true,
+        handlers = {
+          function(server_name)
+            require("lspconfig")[server_name].setup({
+              capabilities = capabilities,
+              on_attach = function(client, bufnr)
+                if client.server_capabilities.semanticTokensProvider then
+                  vim.lsp.semantic_tokens.start(bufnr, client.id)
+                end
+              end,
+            })
+          end,
+        }
       })
     end,
   },
