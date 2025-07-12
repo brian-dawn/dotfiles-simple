@@ -45,7 +45,7 @@ vim.api.nvim_create_autocmd("User", {
 
 require("lazy").setup({
   {
-    "MaximilianLloyd/eyes.nvim",
+    "amedoeyes/eyes.nvim",
     priority = 1000,
   },
   {
