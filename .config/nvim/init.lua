@@ -220,6 +220,34 @@ require("lazy").setup({
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = {
+          "lua",
+          "vim",
+          "go",
+          "gomod",
+          "gowork",
+          "gosum",
+          "zig",
+          "python",
+          "typescript",
+          "javascript",
+          "rust",
+          "toml",
+          "json",
+          "jsonc",
+        },
+        highlight = {
+          enable = true,
+        },
+        auto_install = true,
+      })
+    end,
+  },
 })
 
 
