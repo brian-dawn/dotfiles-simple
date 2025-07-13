@@ -204,6 +204,15 @@ require("lazy").setup({
           layout_config = {
             preview_width = 0.6,
           },
+          file_ignore_patterns = {
+            "%.jpg", "%.jpeg", "%.png", "%.gif", "%.bmp", "%.ico",
+            "%.pdf", "%.zip", "%.tar", "%.gz", "%.rar", "%.7z",
+            "%.exe", "%.dll", "%.so", "%.dylib", "%.app",
+            "%.mp3", "%.mp4", "%.avi", "%.mov", "%.mkv", "%.wav",
+            "%.bin", "%.dat", "%.db", "%.sqlite",
+            "%.aseprite", "%.ase",
+            "node_modules/", ".git/"
+          },
         },
         pickers = {
           colorscheme = {
