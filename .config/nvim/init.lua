@@ -278,6 +278,9 @@ require("lazy").setup({
       })
     end,
   },
+  {
+    "tpope/vim-fugitive",
+  },
 })
 
 
