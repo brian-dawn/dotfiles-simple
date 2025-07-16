@@ -141,7 +141,10 @@ require("lazy").setup({
         { "<leader>gp", desc = "Git push" },
         { "<leader>gl", desc = "Git log" },
         { "<leader>gd", desc = "Git diff" },
-        { "<leader>gb", desc = "Git blame" },
+        { "<leader>gb", desc = "Git branch" },
+        { "<leader>gB", desc = "Gitsigns blame" },
+        { "<leader>gh", desc = "Preview hunk" },
+        { "<leader>gH", desc = "Reset hunk" },
         { "<leader>l", group = "LSP" },
         { "<leader>la", desc = "Code actions" },
         { "<leader>lr", desc = "Rename" },
@@ -286,14 +289,37 @@ require("lazy").setup({
     end,
   },
   {
-    "tpope/vim-fugitive",
+    "lewis6991/gitsigns.nvim",
     config = function()
-      vim.keymap.set("n", "<leader>gs", "<cmd>Git<cr>", { desc = "Git status" })
-      vim.keymap.set("n", "<leader>gc", "<cmd>Git commit<cr>", { desc = "Git commit" })
-      vim.keymap.set("n", "<leader>gp", "<cmd>Git push<cr>", { desc = "Git push" })
-      vim.keymap.set("n", "<leader>gl", "<cmd>Git log<cr>", { desc = "Git log" })
-      vim.keymap.set("n", "<leader>gd", "<cmd>Gdiff<cr>", { desc = "Git diff" })
-      vim.keymap.set("n", "<leader>gb", "<cmd>Git blame<cr>", { desc = "Git blame" })
+      require("gitsigns").setup({
+        current_line_blame = true,
+        current_line_blame_opts = {
+          delay = 300,
+        },
+      })
+      
+      vim.keymap.set("n", "<leader>gB", "<cmd>Gitsigns blame_line<cr>", { desc = "Git blame" })
+      vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<cr>", { desc = "Preview hunk" })
+      vim.keymap.set("n", "<leader>gH", "<cmd>Gitsigns reset_hunk<cr>", { desc = "Reset hunk" })
+      vim.keymap.set("n", "]h", "<cmd>Gitsigns next_hunk<cr>", { desc = "Next hunk" })
+      vim.keymap.set("n", "[h", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Previous hunk" })
+    end,
+  },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("neogit").setup()
+      vim.keymap.set("n", "<leader>gs", "<cmd>Neogit<cr>", { desc = "Git status" })
+      vim.keymap.set("n", "<leader>gc", "<cmd>Neogit commit<cr>", { desc = "Git commit" })
+      vim.keymap.set("n", "<leader>gp", "<cmd>Neogit push<cr>", { desc = "Git push" })
+      vim.keymap.set("n", "<leader>gl", "<cmd>Neogit log<cr>", { desc = "Git log" })
+      vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Git diff" })
+      vim.keymap.set("n", "<leader>gb", "<cmd>Neogit branch<cr>", { desc = "Git branch" })
     end,
   },
 })
