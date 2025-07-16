@@ -135,6 +135,13 @@ require("lazy").setup({
         { "<leader>.", desc = "Resume last search" },
         { "<leader>C", desc = "Choose colorscheme" },
         { "<leader>T", desc = "Toggle light/dark mode" },
+        { "<leader>g", group = "Git" },
+        { "<leader>gs", desc = "Git status" },
+        { "<leader>gc", desc = "Git commit" },
+        { "<leader>gp", desc = "Git push" },
+        { "<leader>gl", desc = "Git log" },
+        { "<leader>gd", desc = "Git diff" },
+        { "<leader>gb", desc = "Git blame" },
         { "<leader>l", group = "LSP" },
         { "<leader>la", desc = "Code actions" },
         { "<leader>lr", desc = "Rename" },
@@ -280,6 +287,14 @@ require("lazy").setup({
   },
   {
     "tpope/vim-fugitive",
+    config = function()
+      vim.keymap.set("n", "<leader>gs", "<cmd>Git<cr>", { desc = "Git status" })
+      vim.keymap.set("n", "<leader>gc", "<cmd>Git commit<cr>", { desc = "Git commit" })
+      vim.keymap.set("n", "<leader>gp", "<cmd>Git push<cr>", { desc = "Git push" })
+      vim.keymap.set("n", "<leader>gl", "<cmd>Git log<cr>", { desc = "Git log" })
+      vim.keymap.set("n", "<leader>gd", "<cmd>Gdiff<cr>", { desc = "Git diff" })
+      vim.keymap.set("n", "<leader>gb", "<cmd>Git blame<cr>", { desc = "Git blame" })
+    end,
   },
 })
 
