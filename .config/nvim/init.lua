@@ -5,6 +5,7 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.autoread = true
 vim.opt.clipboard = "unnamedplus"
+vim.opt.scrolloff = 5
 vim.g.mapleader = " "
 
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "FocusGained" }, {
