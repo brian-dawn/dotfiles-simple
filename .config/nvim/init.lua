@@ -323,6 +323,12 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>gb", "<cmd>Neogit branch<cr>", { desc = "Git branch" })
     end,
   },
+  {
+    "catgoose/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
 })
 
 
