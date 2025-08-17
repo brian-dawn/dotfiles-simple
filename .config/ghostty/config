@@ -2,3 +2,20 @@
 theme = flexoki-dark
 window-padding-x = 20
 window-padding-y = 20
+
+# Pane splitting keybindings (Ctrl+Shift prefix)
+keybind = ctrl+shift+backslash=new_split:right
+keybind = ctrl+shift+minus=new_split:down
+
+# Pane navigation keybindings (Ctrl+Shift prefix)
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+l=goto_split:right
+
+# Pane management
+keybind = ctrl+shift+x=close_surface
+keybind = ctrl+shift+equal=equalize_splits
+
+# Disable inactive pane dimming
+unfocused-split-opacity = 1.0
