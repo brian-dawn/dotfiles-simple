@@ -149,6 +149,8 @@ require("lazy").setup({
         { "<leader>l", group = "LSP" },
         { "<leader>la", desc = "Code actions" },
         { "<leader>lr", desc = "Rename" },
+        { "<leader>ld", desc = "Line diagnostics" },
+        { "<leader>lq", desc = "Diagnostic quickfix" },
       })
     end,
   },
@@ -198,11 +200,31 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     dependencies = { "williamboman/mason-lspconfig.nvim", "hrsh7th/cmp-nvim-lsp" },
     config = function()
+      vim.diagnostic.config({
+        virtual_text = true,
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+        float = {
+          focusable = false,
+          style = "minimal",
+          border = "rounded",
+          source = "always",
+          header = "",
+          prefix = "",
+        },
+      })
+      
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
       vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
       vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code action" })
       vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
+      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
+      vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+      vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Line diagnostics" })
+      vim.keymap.set("n", "<leader>lq", vim.diagnostic.setloclist, { desc = "Diagnostic quickfix" })
     end,
   },
   {
