@@ -97,30 +97,6 @@ export PATH=$BUN_INSTALL/bin:$PATH
 
 [ -f "/home/brian/.ghcup/env" ] && source "/home/brian/.ghcup/env" # ghcup-env
 
-
-function wvim() {
-    # Launch a new wezterm window running neovim.
-
-    # Store configuration options in an array
-    config_lines=(--config hide_tab_bar_if_only_one_tab=true --config \""window_padding={left=0,right=0,top=0,bottom=0}"\")
-
-
-
-    # If WSL
-    if [ -n "$WSL_DISTRO_NAME" ]; then
-        # Launch wezterm with WSL
-        wsl_command=(/mnt/c/Users/Brian/scoop/shims/wezterm.exe "${config_lines[@]}" start -- wsl --cd "$(pwd)" -e nvim "$@")
-        echo $wsl_command
-        eval "nohup ${wsl_command[@]} >/dev/null 2>&1 &"
-    else
-        # Launch wezterm with nvim
-        # wezterm "${config_lines[@]}" --cd "$(pwd)" -e nvim "$@"  &
-        wezterm "${config_lines[@]}" -e nvim "$@"  &
-    fi
-}
-
-
-
 unset HISTIGNORE
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
