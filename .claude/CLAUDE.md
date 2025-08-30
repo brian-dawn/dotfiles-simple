@@ -21,6 +21,11 @@
 
 * Write tests for all new features where it makes sense to.
 
+## Execution
+
+* Never run blocking programs, ask the user to run it. e.g. npm run dev on a react project, a webserver, a game, etc.
+* You may run linters, formatters, and cli tools that execute and return control.
+
 
 ## Code Quality Discipline
 * Do not leave TODO, FIXME, or placeholder comments in production code
