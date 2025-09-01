@@ -108,12 +108,16 @@ require("lazy").setup({
     priority = 1000,
   },
   {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme gruvbox")
+    end,
+  },
+  {
     "kepano/flexoki-neovim",
     name = "flexoki",
     priority = 1000,
-    config = function()
-      vim.cmd("colorscheme flexoki-dark")
-    end,
   },
   {
     "nvim-tree/nvim-web-devicons",
@@ -353,5 +357,36 @@ require("lazy").setup({
   },
 })
 
+local function set_theme()
+  local handle = io.popen("dark-notify -e")
+  local result = handle:read("*a")
+  handle:close()
+  
+  if result:match("dark") then
+    vim.o.background = "dark"
+  else
+    vim.o.background = "light"
+  end
+end
 
+set_theme()
+
+vim.fn.jobstart("dark-notify", {
+  stdout_buffered = false,
+  on_stdout = function(_, data)
+    if data then
+      for _, line in ipairs(data) do
+        if line == "dark" then
+          vim.schedule(function()
+            vim.o.background = "dark"
+          end)
+        elseif line == "light" then
+          vim.schedule(function()
+            vim.o.background = "light"
+          end)
+        end
+      end
+    end
+  end,
+})
 
