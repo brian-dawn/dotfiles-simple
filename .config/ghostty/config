@@ -1,7 +1,6 @@
 #theme = rose-pine-dawn
 #theme = flexoki-dark
-theme = dark:GruvboxDark,light:GruvboxLight
-window-padding-y = 20
+theme = dark:Gruvbox Dark,light:Gruvbox Light
 
 # Pane splitting keybindings (Ctrl+Shift prefix)
 keybind = ctrl+shift+backslash=new_split:right

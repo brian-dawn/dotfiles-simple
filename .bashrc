@@ -101,6 +101,4 @@ unset HISTIGNORE
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-# Fix tmux paste issues.
-printf "\e[?2004l"
 
