@@ -98,7 +98,5 @@ export PATH=$BUN_INSTALL/bin:$PATH
 [ -f "/home/brian/.ghcup/env" ] && source "/home/brian/.ghcup/env" # ghcup-env
 
 unset HISTIGNORE
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 
