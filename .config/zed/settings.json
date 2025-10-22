@@ -7,12 +7,6 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "agent": {
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4o"
-    },
-  },
   "vim_mode": true,
   "theme": "Flexoki Dark",
   "ui_font_size": 16,

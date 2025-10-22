@@ -100,3 +100,4 @@ export PATH=$BUN_INSTALL/bin:$PATH
 unset HISTIGNORE
 
 
+bind 'set enable-bracketed-paste on'
