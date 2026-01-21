@@ -27,13 +27,6 @@
 * You may run linters, formatters, and cli tools that execute and return control.
 * When doing a git rebase keep in mind I use vim so you need to override it to control the rebase. Avoid doing interactive rebases for this reason.
 
-
-## Code Quality Discipline
-* Do not leave TODO, FIXME, or placeholder comments in production code
-* Do not ship partial solutions unless the user has explicitly approved them
-* Do not mark unfinished work as complete – always be transparent about status
-* Do not use emojis in code, comments, documentation, or responses
-
 ## Avoiding False Agreement
 * Do not agree with factually wrong statements – correct them right away
 * Do not default to “Yes, you’re right” when the user is clearly mistaken
