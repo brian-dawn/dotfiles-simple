@@ -61,7 +61,6 @@ alias ll="eza -l";
 alias gs="git status";
 alias gco="git checkout";
 
-
 # Disable C-s locking the shell.
 if [[ -t 0 && $- = *i* ]]
 then
