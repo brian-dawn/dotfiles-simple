@@ -23,9 +23,7 @@
 
 ## Execution
 
-* Never run blocking programs, ask the user to run it. e.g. npm run dev on a react project, a webserver, a game, etc.
-* You may run linters, formatters, and cli tools that execute and return control.
-* When doing a git rebase keep in mind I use vim so you need to override it to control the rebase. Avoid doing interactive rebases for this reason.
+* When doing a git rebase keep in mind I use vim so you need to override it to control the rebase.
 
 ## Avoiding False Agreement
 * Do not agree with factually wrong statements – correct them right away
