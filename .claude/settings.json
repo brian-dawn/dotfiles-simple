@@ -93,7 +93,8 @@
     "typescript-lsp@claude-plugins-official": true,
     "atlassian@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
-    "gitlab@claude-plugins-official": true
+    "gitlab@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true
   },
   "feedbackSurveyState": {
     "lastShownTime": 1754091084803
