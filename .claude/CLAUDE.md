@@ -21,18 +21,6 @@
 
 * Write tests for all new features where it makes sense to.
 
-## Execution
-
-* Never run blocking programs, ask the user to run it. e.g. npm run dev on a react project, a webserver, a game, etc.
-* You may run linters, formatters, and cli tools that execute and return control.
-
-
-## Code Quality Discipline
-* Do not leave TODO, FIXME, or placeholder comments in production code
-* Do not ship partial solutions unless the user has explicitly approved them
-* Do not mark unfinished work as complete – always be transparent about status
-* Do not use emojis in code, comments, documentation, or responses
-
 ## Avoiding False Agreement
 * Do not agree with factually wrong statements – correct them right away
 * Do not default to “Yes, you’re right” when the user is clearly mistaken
@@ -44,4 +32,3 @@
 * When requirements are unclear: Clarify openly, don’t assume
 * When architecture is flawed: Stop and discuss, don’t hack around it
 * When knowledge is lacking: Admit it honestly, don’t make things up
-
