@@ -110,3 +110,25 @@ export PATH="$PATH:$ZVM_INSTALL/"
 source "/Users/brian/.openclaw/completions/openclaw.bash"
 
 export PATH="$HOME/go/bin:$PATH"
+
+# Claude Code profile selector
+claude() {
+  local real_claude
+  real_claude="$(type -P claude)"
+
+  local base_dir="$HOME/.config/claude-code-selector/profiles"
+  local profile
+  profile="$(gum choose --header "Choose a Claude profile" "personal" "work")" || return $?
+
+  local profile_dir="${base_dir}/${profile}"
+  mkdir -p "${profile_dir}/home" "${profile_dir}/xdg"
+
+  local args=()
+  if gum confirm "Dangerously skip permissions?" --default=No; then
+    args+=("--dangerously-skip-permissions")
+  fi
+
+  HOME="${profile_dir}/home" \
+  XDG_CONFIG_HOME="${profile_dir}/xdg" \
+    "$real_claude" "${args[@]}" "$@"
+}
