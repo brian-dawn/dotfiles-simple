@@ -1,9 +1,15 @@
 # Development guidelines
 
+## Tools
+
+We don't really use CLAUDE.md files instead first check for `AGENTS.md` (or other variants).
+
+## Python
+
+I manage my Python with `uv` many projects might not have `uv` support in which case just use `uv python -m` etc etc.
+
 ## High level
 
-* When writing code we should favor failing fast. Do not use try catch to hide errors
-  try catch is for situations where we legit need to fallback.
 * Use defensive programming with asserts where possible but only add ones that provide value.
 * Don't build fallback solutions. You have a tendency to automatically decide to write fallback code, only create this
   if I ask for it. Fallback code hides bugs.
@@ -32,3 +38,17 @@
 * When requirements are unclear: Clarify openly, don’t assume
 * When architecture is flawed: Stop and discuss, don’t hack around it
 * When knowledge is lacking: Admit it honestly, don’t make things up
+
+## Random
+
+Always consider the AGENTS.md or CLAUDE.md that may be in subfolders that you are
+working within.
+
+## Work
+
+
+When doing work in general favor doing clean branching off the latest default branch (be sure to pull).
+
+Branch names follow naming `brian/(BRANCH-NAME)` we like to put tickets in branches if available.
+
+For Addium/work-specific project info, repos, and tools, read `~/.claude/CLAUDE-ADDIUM.md`.

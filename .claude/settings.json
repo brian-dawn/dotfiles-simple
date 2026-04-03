@@ -85,7 +85,6 @@
       "Bash(yarn:*)"
     ]
   },
-  "model": "opus",
   "enabledPlugins": {
     "pyright-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
@@ -94,8 +93,24 @@
     "atlassian@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
     "gitlab@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true
+    "playwright@claude-plugins-official": true,
+    "telegram@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "beads@beads-marketplace": true
   },
+  "extraKnownMarketplaces": {
+    "beads-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "steveyegge/beads"
+      }
+    }
+  },
+  "voiceEnabled": true,
+  "skipDangerousModePermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754091084803
   }

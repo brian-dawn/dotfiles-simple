@@ -22,340 +22,164 @@ vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
   end,
 })
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+local gh = function(x) return "https://github.com/" .. x end
 
-vim.api.nvim_create_autocmd("User", {
-  pattern = "VeryLazy",
-  callback = function()
-    vim.schedule(function()
-      print("Lazy.nvim loaded successfully")
-    end)
+-- treesitter build hook
+vim.api.nvim_create_autocmd("PackChanged", {
+  callback = function(ev)
+    if ev.data.spec.name == "nvim-treesitter" and (ev.data.kind == "install" or ev.data.kind == "update") then
+      vim.cmd("TSUpdate")
+    end
   end,
 })
 
-require("lazy").setup({
-  {
-    "amedoeyes/eyes.nvim",
-    priority = 1000,
-  },
-  {
-    "maxmx03/solarized.nvim",
-    priority = 1000,
-  },
-  {
-    "bettervim/yugen.nvim",
-    priority = 1000,
-  },
-  {
-    "ayu-theme/ayu-vim",
-    priority = 1000,
-  },
-  {
-    "thesimonho/kanagawa-paper.nvim",
-    priority = 1000,
-  },
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-  },
-  {
-    "rebelot/kanagawa.nvim",
-    priority = 1000,
-  },
-  {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-  },
-  {
-    "phha/zenburn.nvim",
-    priority = 1000,
-  },
-  {
-    "sainnhe/gruvbox-material",
-    priority = 1000,
-  },
-  {
-    "webhooked/kanso.nvim",
-    priority = 1000,
-  },
-  {
-    "sainnhe/everforest",
-    priority = 1000,
-  },
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    priority = 1000,
-  },
-  {
-    "shaunsingh/nord.nvim",
-    priority = 1000,
-  },
-  {
-    "AlexvZyl/nordic.nvim",
-    priority = 1000,
-  },
-  {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
+vim.pack.add({
+  -- colorschemes
+  gh("amedoeyes/eyes.nvim"),
+  gh("maxmx03/solarized.nvim"),
+  gh("bettervim/yugen.nvim"),
+  gh("ayu-theme/ayu-vim"),
+  gh("thesimonho/kanagawa-paper.nvim"),
+  { src = gh("catppuccin/nvim"), name = "catppuccin" },
+  gh("rebelot/kanagawa.nvim"),
+  gh("phha/zenburn.nvim"),
+  gh("sainnhe/gruvbox-material"),
+  gh("webhooked/kanso.nvim"),
+  gh("sainnhe/everforest"),
+  { src = gh("rose-pine/neovim"), name = "rose-pine" },
+  gh("shaunsingh/nord.nvim"),
+  gh("AlexvZyl/nordic.nvim"),
+  gh("ellisonleao/gruvbox.nvim"),
+  { src = gh("kepano/flexoki-neovim"), name = "flexoki" },
+
+  -- mini.nvim
+  gh("echasnovski/mini.nvim"),
+
+  -- treesitter
+  gh("nvim-treesitter/nvim-treesitter"),
+
+  -- git
+  gh("lewis6991/gitsigns.nvim"),
+  gh("nvim-lua/plenary.nvim"),
+  gh("sindrets/diffview.nvim"),
+  gh("NeogitOrg/neogit"),
+
+  -- misc
+  gh("catgoose/nvim-colorizer.lua"),
+})
+
+-- colorscheme
+vim.cmd("colorscheme gruvbox")
+
+-- mini.nvim
+require("mini.icons").setup()
+MiniIcons.mock_nvim_web_devicons()
+
+require("mini.pick").setup({
+  window = {
     config = function()
-      vim.cmd("colorscheme gruvbox")
-    end,
-  },
-  {
-    "kepano/flexoki-neovim",
-    name = "flexoki",
-    priority = 1000,
-  },
-  {
-    "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("nvim-web-devicons").setup()
-    end,
-  },
-  {
-    "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup({
-        delay = 500,
-      })
-      
-      require("which-key").add({
-        { "<leader>f", desc = "Find files" },
-        { "<leader>/", desc = "Global search" },
-        { "<leader>b", desc = "Find buffers" },
-        { "<leader>?", desc = "Find help" },
-        { "<leader>.", desc = "Resume last search" },
-        { "<leader>C", desc = "Choose colorscheme" },
-        { "<leader>T", desc = "Toggle light/dark mode" },
-        { "<leader>g", group = "Git" },
-        { "<leader>gs", desc = "Git status" },
-        { "<leader>gc", desc = "Git commit" },
-        { "<leader>gp", desc = "Git push" },
-        { "<leader>gl", desc = "Git log" },
-        { "<leader>gd", desc = "Git diff" },
-        { "<leader>gb", desc = "Git branch" },
-        { "<leader>gB", desc = "Gitsigns blame" },
-        { "<leader>gh", desc = "Preview hunk" },
-        { "<leader>gH", desc = "Reset hunk" },
-        { "<leader>l", group = "LSP" },
-        { "<leader>la", desc = "Code actions" },
-        { "<leader>lr", desc = "Rename" },
-        { "<leader>ld", desc = "Line diagnostics" },
-        { "<leader>lq", desc = "Diagnostic quickfix" },
-      })
-    end,
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-    },
-    config = function()
-      local cmp = require("cmp")
-      
-      cmp.setup({
-        mapping = cmp.mapping.preset.insert({
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm({ select = true }),
-        }),
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'buffer' },
-          { name = 'path' },
-        })
-      })
-    end,
-  },
-  {
-    "williamboman/mason.nvim",
-    build = ":MasonUpdate",
-    config = function()
-      require("mason").setup()
-    end,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = { "williamboman/mason.nvim" },
-    config = function()
-      require("mason-lspconfig").setup({
-        automatic_installation = true,
-      })
-    end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = { "williamboman/mason-lspconfig.nvim", "hrsh7th/cmp-nvim-lsp" },
-    config = function()
-      vim.diagnostic.config({
-        virtual_text = true,
-        signs = true,
-        underline = true,
-        update_in_insert = false,
-        severity_sort = true,
-        float = {
-          focusable = false,
-          style = "minimal",
-          border = "rounded",
-          source = "always",
-          header = "",
-          prefix = "",
-        },
-      })
-      
-      vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-      vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
-      vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code action" })
-      vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
-      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
-      vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
-      vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Line diagnostics" })
-      vim.keymap.set("n", "<leader>lq", vim.diagnostic.setloclist, { desc = "Diagnostic quickfix" })
-    end,
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("telescope").setup({
-        defaults = {
-          layout_strategy = "horizontal",
-          layout_config = {
-            preview_width = 0.6,
-          },
-          file_ignore_patterns = {
-            "%.jpg", "%.jpeg", "%.png", "%.gif", "%.bmp", "%.ico",
-            "%.pdf", "%.zip", "%.tar", "%.gz", "%.rar", "%.7z",
-            "%.exe", "%.dll", "%.so", "%.dylib", "%.app",
-            "%.mp3", "%.mp4", "%.avi", "%.mov", "%.mkv", "%.wav",
-            "%.bin", "%.dat", "%.db", "%.sqlite",
-            "%.aseprite", "%.ase",
-            "node_modules/", ".git/"
-          },
-        },
-        pickers = {
-          colorscheme = {
-            enable_preview = true,
-          },
-        },
-      })
-      
-      local builtin = require("telescope.builtin")
-      vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "Find files" })
-      vim.keymap.set("n", "<leader>/", builtin.live_grep, { desc = "Global search" })
-      vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "Find buffers" })
-      vim.keymap.set("n", "<leader>?", builtin.help_tags, { desc = "Find help" })
-      vim.keymap.set("n", "<leader>.", builtin.resume, { desc = "Resume last search" })
-      vim.keymap.set("n", "<leader>C", function() 
-        builtin.colorscheme({ enable_preview = true })
-      end, { desc = "Choose colorscheme" })
-      
-      vim.keymap.set("n", "<leader>T", function()
-        if vim.o.background == "dark" then
-          vim.o.background = "light"
-        else
-          vim.o.background = "dark"
-        end
-      end, { desc = "Toggle light/dark mode" })
-    end,
-  },
-  {
-    "windwp/nvim-autopairs",
-    config = function()
-      require("nvim-autopairs").setup({})
-      
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-      local cmp = require("cmp")
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-    end,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = {
-          "lua",
-          "vim",
-          "go",
-          "gomod",
-          "gowork",
-          "gosum",
-          "zig",
-          "python",
-          "typescript",
-          "javascript",
-          "rust",
-          "toml",
-          "json",
-          "jsonc",
-        },
-        highlight = {
-          enable = true,
-        },
-        auto_install = true,
-      })
-    end,
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup({
-        current_line_blame = true,
-        current_line_blame_opts = {
-          delay = 300,
-        },
-      })
-      
-      vim.keymap.set("n", "<leader>gB", "<cmd>Gitsigns blame_line<cr>", { desc = "Git blame" })
-      vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<cr>", { desc = "Preview hunk" })
-      vim.keymap.set("n", "<leader>gH", "<cmd>Gitsigns reset_hunk<cr>", { desc = "Reset hunk" })
-      vim.keymap.set("n", "]h", "<cmd>Gitsigns next_hunk<cr>", { desc = "Next hunk" })
-      vim.keymap.set("n", "[h", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Previous hunk" })
-    end,
-  },
-  {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("neogit").setup()
-      vim.keymap.set("n", "<leader>gs", "<cmd>Neogit<cr>", { desc = "Git status" })
-      vim.keymap.set("n", "<leader>gc", "<cmd>Neogit commit<cr>", { desc = "Git commit" })
-      vim.keymap.set("n", "<leader>gp", "<cmd>Neogit push<cr>", { desc = "Git push" })
-      vim.keymap.set("n", "<leader>gl", "<cmd>Neogit log<cr>", { desc = "Git log" })
-      vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Git diff" })
-      vim.keymap.set("n", "<leader>gb", "<cmd>Neogit branch<cr>", { desc = "Git branch" })
-    end,
-  },
-  {
-    "catgoose/nvim-colorizer.lua",
-    config = function()
-      require("colorizer").setup()
+      local height = math.floor(0.618 * vim.o.lines)
+      local width = math.floor(0.618 * vim.o.columns)
+      return {
+        anchor = "NW",
+        height = height,
+        width = width,
+        row = math.floor(0.5 * (vim.o.lines - height)),
+        col = math.floor(0.5 * (vim.o.columns - width)),
+      }
     end,
   },
 })
+
+require("mini.clue").setup({
+  triggers = {
+    { mode = "n", keys = "<Leader>" },
+    { mode = "x", keys = "<Leader>" },
+    { mode = "n", keys = "g" },
+    { mode = "x", keys = "g" },
+    { mode = "n", keys = "'" },
+    { mode = "n", keys = "`" },
+    { mode = "x", keys = "'" },
+    { mode = "x", keys = "`" },
+    { mode = "n", keys = '"' },
+    { mode = "x", keys = '"' },
+    { mode = "i", keys = "<C-r>" },
+    { mode = "c", keys = "<C-r>" },
+    { mode = "n", keys = "<C-w>" },
+    { mode = "n", keys = "z" },
+    { mode = "x", keys = "z" },
+    { mode = "n", keys = "]" },
+    { mode = "n", keys = "[" },
+  },
+  clues = {
+    require("mini.clue").gen_clues.builtin_completion(),
+    require("mini.clue").gen_clues.g(),
+    require("mini.clue").gen_clues.marks(),
+    require("mini.clue").gen_clues.registers(),
+    require("mini.clue").gen_clues.windows(),
+    require("mini.clue").gen_clues.z(),
+    { mode = "n", keys = "<Leader>g", desc = "+Git" },
+  },
+  window = {
+    delay = 300,
+  },
+})
+
+vim.keymap.set("n", "<leader>f", "<cmd>Pick files<cr>", { desc = "Find files" })
+vim.keymap.set("n", "<leader>/", "<cmd>Pick grep_live<cr>", { desc = "Grep" })
+vim.keymap.set("n", "<leader>b", "<cmd>Pick buffers<cr>", { desc = "Buffers" })
+vim.keymap.set("n", "<leader>?", "<cmd>Pick help<cr>", { desc = "Help" })
+vim.keymap.set("n", "<leader>.", "<cmd>Pick resume<cr>", { desc = "Resume" })
+
+vim.keymap.set("n", "<leader>T", function()
+  if vim.o.background == "dark" then
+    vim.o.background = "light"
+  else
+    vim.o.background = "dark"
+  end
+end, { desc = "Toggle light/dark" })
+
+-- treesitter (highlight/indent are now builtin, plugin installs parsers + queries)
+local ts_parsers = {
+  "lua", "vim", "vimdoc", "go", "gomod", "gowork", "gosum",
+  "zig", "python", "typescript", "javascript", "tsx",
+  "rust", "toml", "json", "yaml", "html", "css",
+  "bash", "markdown", "markdown_inline", "regex", "query",
+}
+
+require("nvim-treesitter").install(ts_parsers)
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    if pcall(vim.treesitter.start) then
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
+})
+
+-- gitsigns
+require("gitsigns").setup({
+  current_line_blame = true,
+  current_line_blame_opts = { delay = 300 },
+})
+vim.keymap.set("n", "<leader>gB", "<cmd>Gitsigns blame_line<cr>", { desc = "Git blame" })
+vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<cr>", { desc = "Preview hunk" })
+vim.keymap.set("n", "<leader>gH", "<cmd>Gitsigns reset_hunk<cr>", { desc = "Reset hunk" })
+vim.keymap.set("n", "]h", "<cmd>Gitsigns next_hunk<cr>", { desc = "Next hunk" })
+vim.keymap.set("n", "[h", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Previous hunk" })
+
+-- neogit
+require("neogit").setup()
+vim.keymap.set("n", "<leader>gs", "<cmd>Neogit<cr>", { desc = "Git status" })
+vim.keymap.set("n", "<leader>gc", "<cmd>Neogit commit<cr>", { desc = "Git commit" })
+vim.keymap.set("n", "<leader>gp", "<cmd>Neogit push<cr>", { desc = "Git push" })
+vim.keymap.set("n", "<leader>gl", "<cmd>Neogit log<cr>", { desc = "Git log" })
+vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Git diff" })
+vim.keymap.set("n", "<leader>gb", "<cmd>Neogit branch<cr>", { desc = "Git branch" })
+
+-- colorizer
+require("colorizer").setup()
 
 local function set_theme()
   local handle = io.popen("dark-notify -e")

@@ -100,3 +100,13 @@ unset HISTIGNORE
 
 
 bind 'set enable-bracketed-paste on'
+
+# ZVM
+export ZVM_INSTALL="$HOME/.zvm/self"
+export PATH="$PATH:$HOME/.zvm/bin"
+export PATH="$PATH:$ZVM_INSTALL/"
+
+# OpenClaw Completion
+source "/Users/brian/.openclaw/completions/openclaw.bash"
+
+export PATH="$HOME/go/bin:$PATH"
