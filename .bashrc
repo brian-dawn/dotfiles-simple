@@ -68,9 +68,7 @@ then
 fi 
 
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(mise activate bash)"
 . "$HOME/.cargo/env"
 
 # If not present download git completions.
@@ -106,9 +104,6 @@ export ZVM_INSTALL="$HOME/.zvm/self"
 export PATH="$PATH:$HOME/.zvm/bin"
 export PATH="$PATH:$ZVM_INSTALL/"
 
-# OpenClaw Completion
-source "/Users/brian/.openclaw/completions/openclaw.bash"
-
 export PATH="$HOME/go/bin:$PATH"
 
 # Claude Code profile selector
@@ -132,3 +127,6 @@ claude() {
   XDG_CONFIG_HOME="${profile_dir}/xdg" \
     "$real_claude" "${args[@]}" "$@"
 }
+
+# OpenClaw Completion
+source "/Users/brian/.openclaw/completions/openclaw.bash"
