@@ -125,9 +125,11 @@ claude() {
 
   HOME="${profile_dir}/home" \
   XDG_CONFIG_HOME="${profile_dir}/xdg" \
+  CLAUDE_CONFIG_DIR="${profile_dir}/home/.claude" \
     "$real_claude" "${args[@]}" "$@"
 }
 
 # OpenClaw Completion
 source "/Users/brian/.openclaw/completions/openclaw.bash"
+
 export PATH="$HOME/.local/bin:$PATH"
