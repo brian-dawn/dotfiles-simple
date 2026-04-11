@@ -130,3 +130,4 @@ claude() {
 
 # OpenClaw Completion
 source "/Users/brian/.openclaw/completions/openclaw.bash"
+export PATH="$HOME/.local/bin:$PATH"

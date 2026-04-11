@@ -1,6 +1,6 @@
 [user]
-    email = brian.t.dawn@gmail.com
-    name = Brian Dawn
+	email = brian.dawn@addium.io
+	name = Brian Dawn
 [pull]
 	rebase = true
 [init]
@@ -19,3 +19,5 @@
 	followTags = true
 	autoSetupRemote = true
 	default = current
+[includeIf "gitdir:/Users/brian/Mira/"]
+	path = /Users/brian/.gitconfig-mira
