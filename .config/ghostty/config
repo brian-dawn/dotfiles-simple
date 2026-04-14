@@ -20,6 +20,7 @@ keybind = ctrl+shift+equal=equalize_splits
 # Tab navigation
 keybind = ctrl+shift+t=new_tab
 keybind = ctrl+shift+r=prompt_tab_title
+keybind = ctrl+shift+h=prompt_tab_title
 
 keybind = ctrl+shift+1=goto_tab:1
 keybind = ctrl+shift+2=goto_tab:2

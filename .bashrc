@@ -5,6 +5,8 @@ eval "$(starship init bash)"
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
 
+alias bat=bat --theme="ansi"
+
 # Lab
 alias lab="DOCKER_HOST=ssh://root@lab.dawn.lol docker"
 alias lab-compose="DOCKER_HOST=ssh://root@lab.dawn.lol docker-compose"
