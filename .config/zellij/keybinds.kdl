@@ -1,0 +1,60 @@
+// ~/.config/zellij/keybinds.kdl
+
+keybinds {
+  normal {
+    bind "Ctrl-b" {
+      action "SwitchToMode" "Locked"
+    }
+    bind "Ctrl-b" "c" {
+      action "NewTab"
+    }
+    bind "Ctrl-b" "%" {
+      action "NewPane" "Right"
+    }
+    bind "Ctrl-b" "\"" {
+      action "NewPane" "Down"
+    }
+    bind "Ctrl-b" "x" {
+      action "CloseFocus"
+    }
+    bind "Ctrl-b" "z" {
+      action "TogglePaneFrames"
+    }
+    bind "Ctrl-b" "n" {
+      action "GoToNextTab"
+    }
+    bind "Ctrl-b" "p" {
+      action "GoToPreviousTab"
+    }
+    bind "Ctrl-b" "," {
+      action "RenameTab"
+    }
+    bind "Ctrl-b" "o" {
+      action "FocusNextPane"
+    }
+    bind "Ctrl-b" "h" {
+      action "MoveFocus" "Left"
+    }
+    bind "Ctrl-b" "l" {
+      action "MoveFocus" "Right"
+    }
+    bind "Ctrl-b" "j" {
+      action "MoveFocus" "Down"
+    }
+    bind "Ctrl-b" "k" {
+      action "MoveFocus" "Up"
+    }
+    bind "Ctrl-b" "Left" {
+      action "Resize" "Left"
+    }
+    bind "Ctrl-b" "Right" {
+      action "Resize" "Right"
+    }
+    bind "Ctrl-b" "Up" {
+      action "Resize" "Up"
+    }
+    bind "Ctrl-b" "Down" {
+      action "Resize" "Down"
+    }
+  }
+}
