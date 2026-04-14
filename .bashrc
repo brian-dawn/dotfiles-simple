@@ -106,27 +106,42 @@ export PATH="$PATH:$ZVM_INSTALL/"
 
 export PATH="$HOME/go/bin:$PATH"
 
-# Claude Code profile selector
+# AI tool profile selector
+_ai_profile_select() {
+  gum choose --header "Choose a profile" "personal" "work"
+}
+
 claude() {
   local real_claude
   real_claude="$(type -P claude)"
 
-  local base_dir="$HOME/.config/claude-code-selector/profiles"
   local profile
-  profile="$(gum choose --header "Choose a Claude profile" "personal" "work")" || return $?
+  profile="$(_ai_profile_select)" || return $?
 
-  local profile_dir="${base_dir}/${profile}"
-  mkdir -p "${profile_dir}/home" "${profile_dir}/xdg"
+  local profile_dir="$HOME/.config/claude-profiles/${profile}"
 
   local args=()
   if gum confirm "Dangerously skip permissions?" --default=No; then
     args+=("--dangerously-skip-permissions")
   fi
 
-  HOME="${profile_dir}/home" \
-  XDG_CONFIG_HOME="${profile_dir}/xdg" \
-  CLAUDE_CONFIG_DIR="${profile_dir}/home/.claude" \
+  CLAUDE_CONFIG_DIR="${profile_dir}/.claude" \
+  DOCKER_HOST="unix://$HOME/.colima/default/docker.sock" \
     "$real_claude" "${args[@]}" "$@"
+}
+
+codex() {
+  local real_codex
+  real_codex="$(type -P codex)"
+
+  local profile
+  profile="$(_ai_profile_select)" || return $?
+
+  local profile_dir="$HOME/.config/claude-profiles/${profile}"
+
+  CODEX_HOME="${profile_dir}/.codex" \
+  DOCKER_HOST="unix://$HOME/.colima/default/docker.sock" \
+    "$real_codex" "$@"
 }
 
 # OpenClaw Completion
