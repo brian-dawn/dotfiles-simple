@@ -51,6 +51,7 @@ vim.pack.add({
   gh("AlexvZyl/nordic.nvim"),
   gh("ellisonleao/gruvbox.nvim"),
   { src = gh("kepano/flexoki-neovim"), name = "flexoki" },
+  gh("kungfusheep/mfd.nvim"),
 
   -- mini.nvim
   gh("echasnovski/mini.nvim"),

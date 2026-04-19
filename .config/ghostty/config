@@ -1,5 +1,5 @@
 theme = dark: Rose Pine,light:Rose Pine Dawn
-#theme = flexoki-dark
+theme = dark: Flexoki Dark,light:Flexoki Light
 #theme = dark:Gruvbox Dark,light:Gruvbox Light
 #theme = dark:Everforest Dark,light:Everforest Light
 
@@ -20,7 +20,6 @@ keybind = ctrl+shift+equal=equalize_splits
 # Tab navigation
 keybind = ctrl+shift+t=new_tab
 keybind = ctrl+shift+r=prompt_tab_title
-keybind = ctrl+shift+h=prompt_tab_title
 
 keybind = ctrl+shift+1=goto_tab:1
 keybind = ctrl+shift+2=goto_tab:2
@@ -38,3 +37,5 @@ keybind = ctrl+shift+9=goto_tab:9
 # Padding around pane splits
 window-padding-x = 8
 window-padding-y = 8
+
+#custom-shader = shaders/galaxy.glsl
