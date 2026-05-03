@@ -1,5 +1,5 @@
 theme = dark: Rose Pine,light:Rose Pine Dawn
-theme = dark: Flexoki Dark,light:Flexoki Light
+#theme = dark: Flexoki Dark,light:Flexoki Light
 #theme = dark:Gruvbox Dark,light:Gruvbox Light
 #theme = dark:Everforest Dark,light:Everforest Light
 
@@ -37,5 +37,7 @@ keybind = ctrl+shift+9=goto_tab:9
 # Padding around pane splits
 window-padding-x = 8
 window-padding-y = 8
+confirm-close-surface = false
 
-#custom-shader = shaders/galaxy.glsl
+
+# custom-shader = shaders/galaxy.glsl
