@@ -117,6 +117,11 @@ claude() {
   local real_claude
   real_claude="$(type -P claude)"
 
+  if [[ "$(uname -s)" != "Darwin" ]]; then
+    "$real_claude" "$@"
+    return $?
+  fi
+
   local profile
   profile="$(_ai_profile_select)" || return $?
 
@@ -136,6 +141,11 @@ codex() {
   local real_codex
   real_codex="$(type -P codex)"
 
+  if [[ "$(uname -s)" != "Darwin" ]]; then
+    "$real_codex" "$@"
+    return $?
+  fi
+
   local profile
   profile="$(_ai_profile_select)" || return $?
 
@@ -145,8 +155,5 @@ codex() {
   DOCKER_HOST="unix://$HOME/.colima/default/docker.sock" \
     "$real_codex" "$@"
 }
-
-# OpenClaw Completion
-source "/Users/brian/.openclaw/completions/openclaw.bash"
 
 export PATH="$HOME/.local/bin:$PATH"
