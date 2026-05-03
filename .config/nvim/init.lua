@@ -70,7 +70,7 @@ vim.pack.add({
 })
 
 -- colorscheme
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme flexoki-light")
 
 -- mini.nvim
 require("mini.icons").setup()
@@ -134,9 +134,9 @@ vim.keymap.set("n", "<leader>.", "<cmd>Pick resume<cr>", { desc = "Resume" })
 
 vim.keymap.set("n", "<leader>T", function()
   if vim.o.background == "dark" then
-    vim.o.background = "light"
+    vim.cmd("colorscheme flexoki-light")
   else
-    vim.o.background = "dark"
+    vim.cmd("colorscheme flexoki-dark")
   end
 end, { desc = "Toggle light/dark" })
 
@@ -182,36 +182,145 @@ vim.keymap.set("n", "<leader>gb", "<cmd>Neogit branch<cr>", { desc = "Git branch
 -- colorizer
 require("colorizer").setup()
 
-local function set_theme()
-  local handle = io.popen("dark-notify -e")
+local uv = vim.uv or vim.loop
+local theme_watchers = {}
+local theme_timer
+local current_appearance
+
+local function command_output(command)
+  local handle = io.popen(command)
+  if not handle then
+    return nil
+  end
+
   local result = handle:read("*a")
   handle:close()
-  
-  if result:match("dark") then
-    vim.o.background = "dark"
-  else
-    vim.o.background = "light"
+
+  return result
+end
+
+local function kde_read_config(group, key)
+  local kreadconfig = vim.fn.executable("kreadconfig6") == 1 and "kreadconfig6" or "kreadconfig5"
+  if vim.fn.executable(kreadconfig) ~= 1 then
+    return nil
   end
+
+  return command_output(kreadconfig .. " --file kdeglobals --group " .. group .. " --key " .. key)
+end
+
+local function kde_appearance()
+  local color_scheme = (kde_read_config("General", "ColorScheme") or ""):lower()
+  if color_scheme:match("dark") then
+    return "dark"
+  elseif color_scheme:match("light") then
+    return "light"
+  end
+
+  local look_and_feel = (kde_read_config("KDE", "LookAndFeelPackage") or ""):lower()
+  if look_and_feel:match("dark") then
+    return "dark"
+  elseif look_and_feel:match("light") then
+    return "light"
+  end
+
+  return nil
+end
+
+local function macos_appearance()
+  if vim.fn.executable("dark-notify") ~= 1 then
+    return nil
+  end
+
+  local result = command_output("dark-notify -e")
+  if not result then
+    return nil
+  end
+
+  return result:match("dark") and "dark" or "light"
+end
+
+local function system_appearance()
+  local sysname = uv.os_uname().sysname
+  local desktop = (os.getenv("XDG_CURRENT_DESKTOP") or ""):lower()
+
+  if sysname == "Darwin" then
+    return macos_appearance()
+  elseif desktop:match("kde") or vim.fn.executable("kreadconfig6") == 1 or vim.fn.executable("kreadconfig5") == 1 then
+    return kde_appearance()
+  end
+
+  return nil
+end
+
+local function apply_theme(appearance)
+  if not appearance or appearance == current_appearance then
+    return
+  end
+
+  current_appearance = appearance
+  if appearance == "dark" then
+    vim.cmd("colorscheme flexoki-dark")
+  elseif appearance == "light" then
+    vim.cmd("colorscheme flexoki-light")
+  end
+end
+
+local function set_theme()
+  apply_theme(system_appearance())
+end
+
+local function watch_macos_appearance()
+  if vim.fn.executable("dark-notify") ~= 1 then
+    return
+  end
+
+  vim.fn.jobstart("dark-notify", {
+    stdout_buffered = false,
+    on_stdout = function(_, data)
+      if data then
+        for _, line in ipairs(data) do
+          if line == "dark" or line == "light" then
+            vim.schedule(function()
+              apply_theme(line)
+            end)
+          end
+        end
+      end
+    end,
+  })
+end
+
+local function watch_kde_appearance()
+  local config_dir = vim.fn.expand("~/.config")
+  if vim.fn.isdirectory(config_dir) ~= 1 then
+    return
+  end
+
+  local watcher = uv.new_fs_event()
+  watcher:start(config_dir, {}, function(_, filename)
+    if filename and filename ~= "kdeglobals" then
+      return
+    end
+
+    if theme_timer then
+      theme_timer:stop()
+    end
+    theme_timer = vim.defer_fn(set_theme, 100)
+  end)
+  table.insert(theme_watchers, watcher)
 end
 
 set_theme()
 
-vim.fn.jobstart("dark-notify", {
-  stdout_buffered = false,
-  on_stdout = function(_, data)
-    if data then
-      for _, line in ipairs(data) do
-        if line == "dark" then
-          vim.schedule(function()
-            vim.o.background = "dark"
-          end)
-        elseif line == "light" then
-          vim.schedule(function()
-            vim.o.background = "light"
-          end)
-        end
-      end
-    end
-  end,
+vim.api.nvim_create_autocmd({ "CursorHold", "FocusGained" }, {
+  callback = set_theme,
 })
 
+if uv.os_uname().sysname == "Darwin" then
+  watch_macos_appearance()
+elseif (os.getenv("XDG_CURRENT_DESKTOP") or ""):lower():match("kde")
+  or vim.fn.executable("kreadconfig6") == 1
+  or vim.fn.executable("kreadconfig5") == 1
+then
+  watch_kde_appearance()
+end
